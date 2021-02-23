@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "fnVkMZIht0q49ui5qlcHmf0u+UVw9kKa5TTWrlO3jpUET6tPmkVbRATp7sm72Fzfr604fylaDKe7ezutHVLhBQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ysydt\\Desktop\\Tianyu Virtual Machine\\VM 1.Generation\\Source\\VM\\SkyVM\\SkyVM\\SkyVM.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ysydt\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\ysydt\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

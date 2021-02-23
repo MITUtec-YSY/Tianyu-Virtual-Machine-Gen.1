@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\ysydt\Desktop\第二代-测试\SkyVM.ExModule\SkyVM.ExModule\SkyVM.ExModule.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="SkyVM.AnaModule">
+      <HintPath>..\..\SkyVM.AnaModule\SkyVM.AnaModule\bin\Debug\netstandard2.0\SkyVM.AnaModule.dll</HintPath>
+    </Reference>
+    <Reference Include="SkyVM.CoreModule">
+      <HintPath>..\..\SkyVM.CoreModule\SkyVM.CoreModule\bin\Debug\netstandard2.0\SkyVM.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="SkyVM.CoreModule.Complexs">
+      <HintPath>..\..\SkyVM.CoreModule.Complexs\SkyVM.CoreModule.Complexs\bin\Debug\netstandard2.0\SkyVM.CoreModule.Complexs.dll</HintPath>
+    </Reference>
+    <Reference Include="SkyVM.InterfaceModule">
+      <HintPath>..\..\SkyVM.InterfaceModule\SkyVM.InterfaceModule\bin\Debug\netstandard2.0\SkyVM.InterfaceModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

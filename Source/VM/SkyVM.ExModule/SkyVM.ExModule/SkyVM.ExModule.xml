@@ -1,0 +1,542 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SkyVM.ExModule</name>
+    </assembly>
+    <members>
+        <member name="T:SkyVM.ExModule.ICoreExecutorControl">
+            <summary>
+            执行单元接口
+            </summary>
+        </member>
+        <member name="M:SkyVM.ExModule.ICoreExecutorControl.Interrupt(System.Int32,System.Int32,System.Object[])">
+            <summary>
+            中断接口函数
+            </summary>
+            <param name="coreid">核心编号</param>
+            <param name="exception">设备中断号</param>
+            <param name="data">设备ID</param>
+        </member>
+        <member name="T:SkyVM.ExModule.CoreCodeExecutorUnit">
+            <summary>
+            核心程序执行单元
+            </summary>
+        </member>
+        <member name="P:SkyVM.ExModule.CoreCodeExecutorUnit.CoreID">
+            <summary>
+            核心编号
+            </summary>
+        </member>
+        <member name="M:SkyVM.ExModule.CoreCodeExecutorUnit.#ctor(System.Int32,SkyVM.InterfaceModule.IALUnit,SkyVM.ExModule.ICoreExecutorControl,System.Int32,System.Int32)">
+            <summary>
+            核心代码执行器构造函数
+            </summary>
+            <param name="core_id">核心编号</param>
+            <param name="times">程序运行时间</param>
+            <param name="executor">执行控制器</param>
+            <param name="alu">运算逻辑单元</param>
+            <param name="cache_size">缓存容量</param>
+        </member>
+        <member name="M:SkyVM.ExModule.CoreCodeExecutorUnit.Start(SkyVM.AnaModule.Process)">
+            <summary>
+            开始进程
+            </summary>
+            <param name="process">进程组</param>
+        </member>
+        <member name="M:SkyVM.ExModule.CoreCodeExecutorUnit.Stop">
+            <summary>
+            结束进程
+            </summary>
+            <returns>返回运行时间</returns>
+        </member>
+        <member name="T:SkyVM.ExModule.IExecutorControl">
+            <summary>
+            执行单元接口
+            </summary>
+        </member>
+        <member name="M:SkyVM.ExModule.IExecutorControl.Interrupt(System.Int32,System.Int32,System.Object[])">
+            <summary>
+            中断接口函数
+            </summary>
+            <param name="coreid">核心编号</param>
+            <param name="exception">设备中断号</param>
+            <param name="data">设备ID</param>
+        </member>
+        <member name="T:SkyVM.ExModule.ProcessCodeExecutorUnit">
+            <summary>
+            虚拟机代码执行器（用于代码执行）
+            </summary>
+        </member>
+        <member name="P:SkyVM.ExModule.ProcessCodeExecutorUnit.TimeSlice">
+            <summary>
+            获取或设置进程时间片
+            </summary>
+        </member>
+        <member name="P:SkyVM.ExModule.ProcessCodeExecutorUnit.CoreID">
+            <summary>
+            核心编号
+            </summary>
+        </member>
+        <member name="P:SkyVM.ExModule.ProcessCodeExecutorUnit.ProcessID">
+            <summary>
+            获取正在运行的进程ID
+            </summary>
+        </member>
+        <member name="M:SkyVM.ExModule.ProcessCodeExecutorUnit.#ctor(System.Int32,SkyVM.InterfaceModule.IALUnit,SkyVM.ExModule.IExecutorControl,System.Int32,System.Int32)">
+            <summary>
+            虚拟机代码执行器构造函数
+            </summary>
+            <param name="core_id">核心编号</param>
+            <param name="times">程序运行时间</param>
+            <param name="executor">执行控制器</param>
+            <param name="alu">运算逻辑单元</param>
+            <param name="cache_size">缓存容量</param>
+        </member>
+        <member name="M:SkyVM.ExModule.ProcessCodeExecutorUnit.Start(SkyVM.AnaModule.Process)">
+            <summary>
+            开始进程
+            </summary>
+            <param name="process">进程组</param>
+        </member>
+        <member name="M:SkyVM.ExModule.ProcessCodeExecutorUnit.Stop">
+            <summary>
+            结束进程
+            </summary>
+            <returns>返回运行时间</returns>
+        </member>
+        <member name="M:SkyVM.ExModule.ProcessCodeExecutorUnit.Dispose(System.Boolean)">
+            <summary>
+            资源回收方法
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:SkyVM.ExModule.MemoryReadPackage">
+            <summary>
+            内存读取包
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.MemoryReadPackage.RealizeAddress">
+            <summary>
+            实际内存地址
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.MemoryReadPackage.Block">
+            <summary>
+            内存块
+            </summary>
+        </member>
+        <member name="T:SkyVM.ExModule.ProcessAddPackage">
+            <summary>
+            线程加载包
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.ProcessAddPackage.Program_ID">
+            <summary>
+            线程ID
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.ProcessAddPackage.Program">
+            <summary>
+            程序组
+            </summary>
+        </member>
+        <member name="T:SkyVM.ExModule.IApplication">
+            <summary>
+            上层控制界面接口
+            </summary>
+        </member>
+        <member name="M:SkyVM.ExModule.IApplication.Print(System.String)">
+            <summary>
+            显示消息
+            </summary>
+            <param name="str">消息</param>
+        </member>
+        <member name="M:SkyVM.ExModule.IApplication.Scan(System.Int64)">
+            <summary>
+            获取消息
+            </summary>
+            <param name="size">数据大小</param>
+            <returns>返回消息</returns>
+        </member>
+        <member name="M:SkyVM.ExModule.IApplication.NetCreateFailed(System.Int32)">
+            <summary>
+            网络连接失效
+            </summary>
+            <param name="process">进程号</param>
+        </member>
+        <member name="M:SkyVM.ExModule.IApplication.ShutDown">
+            <summary>
+            虚拟机关机
+            </summary>
+        </member>
+        <member name="T:SkyVM.ExModule.CodeExecutorUnit">
+            <summary>
+            虚拟机代码执行器（用于代码执行）
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.FileLoad">
+            <summary>
+            文件加载系统-由本层实现多线程原子锁
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.FileLoad_Lock">
+            <summary>
+            文件加载系统锁
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.IComplex">
+            <summary>
+            复杂运算核心系统-核心系统实现多线程原子锁
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.IDevice">
+            <summary>
+            IO设备控制器接口-由本层实现多线程原子锁
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.Device_Lock">
+            <summary>
+            IO设备控制器锁
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.INet">
+            <summary>
+            网络控制器接口-由本层实现多线程原子锁
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.Net_Lock">
+            <summary>
+            网络控制器锁
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.Memory">
+            <summary>
+            内存控制器接口-由本层实现多线程原子锁
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.Memory_Lock">
+            <summary>
+            内存控制器锁
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.FileTable">
+            <summary>
+            文件操作表-由本层实现多线程原子锁
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.File_Lock">
+            <summary>
+            文件操作表锁
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.Time">
+            <summary>
+            时钟操作-由本层实现多线程原子锁
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.Time_Lock">
+            <summary>
+            时钟操作锁
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.Cores">
+            <summary>
+            虚拟机运行核心
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.FreeFileIDTable">
+            <summary>
+            空闲文件号表
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.FreeProgramIDTable">
+            <summary>
+            空闲线程号表
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.Ring">
+            <summary>
+            进程环-由本层实现多线程原子锁
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.CodeExecutorUnit.Ring_Lock">
+            <summary>
+            进程环锁
+            </summary>
+        </member>
+        <member name="M:SkyVM.ExModule.CodeExecutorUnit.#ctor(SkyVM.ExModule.IApplication,System.String,SkyVM.InterfaceModule.MemoryBase,System.Int32,SkyVM.InterfaceModule.IComplexOperation,SkyVM.InterfaceModule.TimeBase,SkyVM.InterfaceModule.IDevice,SkyVM.InterfaceModule.INetControl,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            虚拟机代码执行器构造函数
+            </summary>
+            <param name="application">上层应用界面</param>
+            <param name="path">系统启动程序</param>
+            <param name="memory">内存接口</param>
+            <param name="core_num">虚拟机核心数</param>
+            <param name="icomplex">复杂执行单元接口</param>
+            <param name="time">时间操作接口</param>
+            <param name="cache_size">缓存区大小</param>
+            <param name="min_mem_size">进程内存分配最小量</param>
+            <param name="idevice">IO设备接口</param>
+            <param name="inet">网络接口</param>
+            <param name="stack_size">进程堆栈数</param>
+        </member>
+        <member name="T:SkyVM.ExModule.ApplyMemoryPackage">
+            <summary>
+            内存申请包
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.ApplyMemoryPackage.Address">
+            <summary>
+            申请的实际地址
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.ApplyMemoryPackage.RealizeSize">
+            <summary>
+            申请的实际大小
+            </summary>
+        </member>
+        <member name="T:SkyVM.ExModule.MemoryUnit">
+            <summary>
+            内存组件
+            </summary>
+        </member>
+        <member name="P:SkyVM.ExModule.MemoryUnit.Using">
+            <summary>
+            正在使用的内存
+            </summary>
+        </member>
+        <member name="P:SkyVM.ExModule.MemoryUnit.Freeing">
+            <summary>
+            空闲的内存
+            </summary>
+        </member>
+        <member name="P:SkyVM.ExModule.MemoryUnit.MemorySize">
+            <summary>
+            内存大小
+            </summary>
+        </member>
+        <member name="M:SkyVM.ExModule.MemoryUnit.#ctor(System.Int64,System.Int16,System.Int16)">
+            <summary>
+            内存组件构造函数
+            </summary>
+            <param name="mem_size">内存大小</param>
+            <param name="mem_align">内存对齐大小</param>
+            <param name="mem_offset">内存分配允许偏移量</param>
+        </member>
+        <member name="M:SkyVM.ExModule.MemoryUnit.ApplyMemory(System.Int64,System.Int64@)">
+            <summary>
+            内存空间申请
+            </summary>
+            <param name="apply_size">请求内存大小</param>
+            <param name="realize_size">返回实际内存大小</param>
+            <returns>返回内存块号</returns>
+        </member>
+        <member name="M:SkyVM.ExModule.MemoryUnit.ReleaseMemory(System.Int64)">
+            <summary>
+            释放内存
+            </summary>
+            <param name="mem_id">内存块号</param>
+        </member>
+        <member name="M:SkyVM.ExModule.MemoryUnit.ReadMemory(System.Int64,System.Int64@)">
+            <summary>
+            内存段引用方法（将需要操作的内存块段整体读取-用于上层缓存使用）
+            </summary>
+            <param name="mem_id">读取的内存块号</param>
+            <param name="realize_id">实际的内存段起始号</param>
+            <returns>返回内存段</returns>
+        </member>
+        <member name="M:SkyVM.ExModule.MemoryUnit.Apply(System.Int64,System.Int64@)">
+            <summary>
+            内存申请后台方法
+            </summary>
+            <param name="apply_size">请求内存大小</param>
+            <param name="realize_size">返回实际分配内存大小</param>
+            <returns>返回内存块号</returns>
+        </member>
+        <member name="M:SkyVM.ExModule.MemoryUnit.MemoryFreeTrim">
+            <summary>
+            空闲内存整理方法（当申请内存失败时，进行零碎空间合并）
+            </summary>
+        </member>
+        <member name="T:SkyVM.ExModule.VisualStation">
+            <summary>
+            代码执行组件
+            </summary>
+        </member>
+        <member name="T:SkyVM.ExModule.Time">
+            <summary>
+            时间类
+            </summary>
+        </member>
+        <member name="M:SkyVM.ExModule.Time.#ctor">
+            <summary>
+            时间类构造函数
+            </summary>
+        </member>
+        <member name="M:SkyVM.ExModule.Time.ReadTime(SkyVM.InterfaceModule.TimeOperation_Type)">
+            <summary>
+            读取时间方法
+            </summary>
+            <param name="type">读取时间类型</param>
+            <returns>返回时间</returns>
+        </member>
+        <member name="M:SkyVM.ExModule.Time.WriteTime(System.Int16,SkyVM.InterfaceModule.TimeOperation_Type)">
+            <summary>
+            写入时间方法
+            </summary>
+            <param name="data">时间数据</param>
+            <param name="type">写入时间类型</param>
+        </member>
+        <member name="M:SkyVM.ExModule.Time.SyncTime">
+            <summary>
+            同步时间
+            </summary>
+        </member>
+        <member name="M:SkyVM.ExModule.Time.Save">
+            <summary>
+            保存时间
+            </summary>
+        </member>
+        <member name="T:SkyVM.ExModule.Time.TimerUnit">
+            <summary>
+            时间组件
+            </summary>
+        </member>
+        <member name="M:SkyVM.ExModule.Time.TimerUnit.#ctor">
+            <summary>
+            时间组件构造函数
+            </summary>
+        </member>
+        <member name="M:SkyVM.ExModule.Time.TimerUnit.Sync">
+            <summary>
+            时间同步
+            </summary>
+        </member>
+        <member name="M:SkyVM.ExModule.Time.TimerUnit.SetDate(System.Int16,SkyVM.InterfaceModule.TimeOperation_Type)">
+            <summary>
+            设置时间
+            </summary>
+            <param name="data">设置的数据</param>
+            <param name="type">设置的数据类型</param>
+        </member>
+        <member name="M:SkyVM.ExModule.Time.TimerUnit.GetDate(SkyVM.InterfaceModule.TimeOperation_Type)">
+            <summary>
+            获取时间
+            </summary>
+            <param name="type">获取的数据类型</param>
+            <returns>返回时间</returns>
+        </member>
+        <member name="M:SkyVM.ExModule.Time.TimerUnit.Save">
+            <summary>
+            保存时间
+            </summary>
+        </member>
+        <member name="T:SkyVM.ExModule.File_Type">
+            <summary>
+            文件操作类型
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.File_Type.Entry">
+            <summary>
+            目录
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.File_Type.File">
+            <summary>
+            文件
+            </summary>
+        </member>
+        <member name="T:SkyVM.ExModule.Write_Type">
+            <summary>
+            文件写入方式
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.Write_Type.Append">
+            <summary>
+            追加方式
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.Write_Type.Cover">
+            <summary>
+            覆盖方式
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.Write_Type.Create">
+            <summary>
+            新建文件并写入
+            </summary>
+        </member>
+        <member name="M:SkyVM.ExModule.L1_Cache.#ctor(SkyVM.InterfaceModule.IMemoryCacheInterrupt,System.Int32)">
+            <summary>
+            运行内存模块构造函数
+            </summary>
+            <param name="cache_size">缓存区大小</param>
+            <param name="interrupt">内存控制器中断接口</param>
+        </member>
+        <member name="M:SkyVM.ExModule.L1_Cache.Get(System.Int64,System.Int64,System.Int32)">
+            <summary>
+            读取内存中的数据
+            </summary>
+            <param name="segment">段地址</param>
+            <param name="page">页地址</param>
+            <param name="size">数据长度</param>
+            <returns>返回数据包</returns>
+        </member>
+        <member name="M:SkyVM.ExModule.L1_Cache.LRU(System.Int64)">
+            <summary>
+            缓存替换（最近最少使用算法）
+            </summary>
+            <param name="address">替换地址块</param>
+        </member>
+        <member name="T:SkyVM.ExModule.ProcessRing">
+            <summary>
+            进程运行组件
+            </summary>
+        </member>
+        <member name="P:SkyVM.ExModule.ProcessRing.Count">
+            <summary>
+            获取当前进程数
+            </summary>
+        </member>
+        <member name="M:SkyVM.ExModule.ProcessRing.#ctor">
+            <summary>
+            进程运行组件构造函数
+            </summary>
+        </member>
+        <member name="M:SkyVM.ExModule.ProcessRing.GetProcess">
+            <summary>
+            获取下一个需要运行的进程
+            </summary>
+            <returns>返回进程包</returns>
+        </member>
+        <member name="M:SkyVM.ExModule.ProcessRing.NewProcess(SkyVM.AnaModule.Process)">
+            <summary>
+            增加新的进程
+            </summary>
+            <param name="process">进程包</param>
+        </member>
+        <member name="M:SkyVM.ExModule.ProcessRing.DelProcess(System.Int32)">
+            <summary>
+            移除一个进程
+            </summary>
+            <param name="main_code">主进程编号</param>
+        </member>
+        <member name="M:SkyVM.ExModule.ProcessRing.GetProcess(System.Int32)">
+            <summary>
+            查询指定的进程
+            </summary>
+            <param name="process_id">进程ID</param>
+            <returns>返回进程</returns>
+        </member>
+        <member name="T:SkyVM.ExModule.ProcessRing.Node">
+            <summary>
+            进程包
+            </summary>
+        </member>
+        <member name="F:SkyVM.ExModule.ProcessRing.Node.Process">
+            <summary>
+            进程组件
+            </summary>
+        </member>
+    </members>
+</doc>

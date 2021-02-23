@@ -1,0 +1,60 @@
+{
+  "format": 1,
+  "restore": {
+    "G:\\米兔科技\\项目\\CPU（Sky）\\虚拟机设计\\第二代-测试\\SkyVM.ExModule\\SkyVM.ExModule\\SkyVM.ExModule.csproj": {}
+  },
+  "projects": {
+    "G:\\米兔科技\\项目\\CPU（Sky）\\虚拟机设计\\第二代-测试\\SkyVM.ExModule\\SkyVM.ExModule\\SkyVM.ExModule.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\米兔科技\\项目\\CPU（Sky）\\虚拟机设计\\第二代-测试\\SkyVM.ExModule\\SkyVM.ExModule\\SkyVM.ExModule.csproj",
+        "projectName": "SkyVM.ExModule",
+        "projectPath": "G:\\米兔科技\\项目\\CPU（Sky）\\虚拟机设计\\第二代-测试\\SkyVM.ExModule\\SkyVM.ExModule\\SkyVM.ExModule.csproj",
+        "packagesPath": "C:\\Users\\ysydt\\.nuget\\packages\\",
+        "outputPath": "G:\\米兔科技\\项目\\CPU（Sky）\\虚拟机设计\\第二代-测试\\SkyVM.ExModule\\SkyVM.ExModule\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ysydt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.CoreModule.Complexs\SkyVM.CoreModule.Complexs\bin\Release\netstandard2.0\SkyVM.CoreModule.Complexs.deps.json
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.CoreModule.Complexs\SkyVM.CoreModule.Complexs\bin\Release\netstandard2.0\SkyVM.CoreModule.Complexs.dll
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.CoreModule.Complexs\SkyVM.CoreModule.Complexs\bin\Release\netstandard2.0\SkyVM.CoreModule.Complexs.pdb
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.CoreModule.Complexs\SkyVM.CoreModule.Complexs\bin\Release\netstandard2.0\SkyVM.InterfaceModule.dll
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.CoreModule.Complexs\SkyVM.CoreModule.Complexs\bin\Release\netstandard2.0\SkyVM.InterfaceModule.pdb
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.CoreModule.Complexs\SkyVM.CoreModule.Complexs\bin\Release\netstandard2.0\SkyVM.InterfaceModule.xml
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.CoreModule.Complexs\SkyVM.CoreModule.Complexs\obj\Release\netstandard2.0\SkyVM.CoreModule.Complexs.csprojAssemblyReference.cache
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.CoreModule.Complexs\SkyVM.CoreModule.Complexs\obj\Release\netstandard2.0\SkyVM.CoreModule.Complexs.csproj.CoreCompileInputs.cache
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.CoreModule.Complexs\SkyVM.CoreModule.Complexs\obj\Release\netstandard2.0\SkyVM.CoreModule.Complexs.AssemblyInfoInputs.cache
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.CoreModule.Complexs\SkyVM.CoreModule.Complexs\obj\Release\netstandard2.0\SkyVM.CoreModule.Complexs.AssemblyInfo.cs
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.CoreModule.Complexs\SkyVM.CoreModule.Complexs\obj\Release\netstandard2.0\SkyVM.CoreModule.Complexs.csproj.CopyComplete
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.CoreModule.Complexs\SkyVM.CoreModule.Complexs\obj\Release\netstandard2.0\SkyVM.CoreModule.Complexs.dll
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.CoreModule.Complexs\SkyVM.CoreModule.Complexs\obj\Release\netstandard2.0\SkyVM.CoreModule.Complexs.pdb

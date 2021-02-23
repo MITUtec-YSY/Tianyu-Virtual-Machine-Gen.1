@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SkyVM.CoreModule</name>
+    </assembly>
+    <members>
+        <member name="T:SkyVM.CoreModule.CoreModule">
+            <summary>
+            核心模块
+            </summary>
+        </member>
+        <member name="M:SkyVM.CoreModule.CoreModule.#ctor(SkyVM.InterfaceModule.IComplexOperation)">
+            <summary>
+            核心模块构造函数
+            </summary>
+            <param name="complex">复杂运算模块</param>
+        </member>
+        <member name="M:SkyVM.CoreModule.CoreModule.Calculate(SkyVM.InterfaceModule.Symbol_Flag@,System.Boolean@,System.String,SkyVM.InterfaceModule.CalculateParameter[])">
+            <summary>
+            运算方法
+            </summary>
+            <param name="flag">符号标志位</param>
+            <param name="overflow">溢出标志位</param>
+            <param name="operation">运算符</param>
+            <param name="parameters">参数表</param>
+            <returns>返回运算结果</returns>
+        </member>
+        <member name="M:SkyVM.CoreModule.CoreModule.OperateTest(System.String)">
+            <summary>
+            运算符检测
+            </summary>
+            <param name="operation">运算名</param>
+            <returns>返回检测结果</returns>
+        </member>
+        <member name="T:SkyVM.CoreModule.MathModule">
+            <summary>
+            数学运算计算模块
+            </summary>
+        </member>
+        <member name="M:SkyVM.CoreModule.MathModule.Add(System.Byte[],System.Byte[],SkyVM.InterfaceModule.Symbol_Flag@,System.Boolean@)">
+            <summary>
+            加法运算
+            </summary>
+            <param name="param1">参数1</param>
+            <param name="param2">参数2</param>
+            <param name="flag">运算结果符号标志</param>
+            <param name="overflow">运算溢出标志位</param>
+            <returns>返回运算结果</returns>
+        </member>
+        <member name="M:SkyVM.CoreModule.MathModule.Sub(System.Byte[],System.Byte[],SkyVM.InterfaceModule.Symbol_Flag@,System.Boolean@)">
+            <summary>
+            减法运算
+            </summary>
+            <param name="param1">参数1</param>
+            <param name="param2">参数2</param>
+            <param name="flag">运算结果符号标志</param>
+            <param name="overflow">运算溢出标志位</param>
+            <returns>返回运算结果</returns>
+        </member>
+        <member name="M:SkyVM.CoreModule.MathModule.Mul(System.Byte[],System.Byte[],SkyVM.InterfaceModule.Symbol_Flag@,System.Boolean@)">
+            <summary>
+            乘法运算
+            </summary>
+            <param name="param1">参数1</param>
+            <param name="param2">参数2</param>
+            <param name="flag">运算结果符号标志</param>
+            <param name="overflow">运算溢出标志位</param>
+            <returns>返回运算结果</returns>
+        </member>
+        <member name="M:SkyVM.CoreModule.MathModule.Div(System.Byte[],System.Byte[],SkyVM.InterfaceModule.Symbol_Flag@,System.Boolean@)">
+            <summary>
+            除法运算
+            </summary>
+            <param name="param1">参数1</param>
+            <param name="param2">参数2</param>
+            <param name="flag">运算结果符号标志</param>
+            <param name="overflow">运算溢出标志位</param>
+            <returns>返回运算结果</returns>
+        </member>
+    </members>
+</doc>

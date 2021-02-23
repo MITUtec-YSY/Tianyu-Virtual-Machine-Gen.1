@@ -1,0 +1,417 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SkyVM.InterfaceModule</name>
+    </assembly>
+    <members>
+        <member name="T:SkyVM.InterfaceModule.IMemory">
+            <summary>
+            内存接口
+            </summary>
+        </member>
+        <member name="P:SkyVM.InterfaceModule.IMemory.MemorySize">
+            <summary>
+            获取内存容量大小
+            </summary>
+        </member>
+        <member name="P:SkyVM.InterfaceModule.IMemory.Using">
+            <summary>
+            获取正在使用的内存块
+            </summary>
+        </member>
+        <member name="P:SkyVM.InterfaceModule.IMemory.Freeing">
+            <summary>
+            获取空闲的内存块
+            </summary>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IMemory.ApplyMemory(System.Int64,System.Int64@)">
+            <summary>
+            内存空间申请
+            </summary>
+            <param name="apply_size">请求内存大小</param>
+            <param name="realize_size">返回实际内存大小</param>
+            <returns>返回内存块号</returns>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IMemory.ReleaseMemory(System.Int64)">
+            <summary>
+            释放内存
+            </summary>
+            <param name="mem_id">内存块号</param>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IMemory.ReadMemory(System.Int64)">
+            <summary>
+            内存段引用方法（将需要操作的内存块段整体读取-用于上层缓存使用）
+            </summary>
+            <param name="mem_id">读取的内存块号</param>
+            <returns>返回内存段</returns>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IMemory.ReadTime(SkyVM.InterfaceModule.TimeOperation_Type)">
+            <summary>
+            读取时间方法
+            </summary>
+            <param name="type">读取时间类型</param>
+            <returns>返回时间</returns>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IMemory.WriteTime(System.Int16,SkyVM.InterfaceModule.TimeOperation_Type)">
+            <summary>
+            写入时间方法
+            </summary>
+            <param name="data">时间数据</param>
+            <param name="type">写入时间类型</param>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IMemory.SyncTime">
+            <summary>
+            同步时间
+            </summary>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IMemory.Save">
+            <summary>
+            保存时间
+            </summary>
+        </member>
+        <member name="T:SkyVM.InterfaceModule.MemoryNode">
+            <summary>
+            内存状态传递包
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.MemoryNode.Mem_ID">
+            <summary>
+            内存起始块号
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.MemoryNode.Mem_Size">
+            <summary>
+            内存长度
+            </summary>
+        </member>
+        <member name="T:SkyVM.InterfaceModule.ICache">
+            <summary>
+            虚拟机缓存接口
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.ICache.Memory">
+            <summary>
+            内存接口
+            </summary>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.ICache.#ctor(SkyVM.InterfaceModule.IMemory)">
+            <summary>
+            缓存接口构造函数
+            </summary>
+            <param name="memory"></param>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.ICache.Get(System.Int64,System.Int64,System.Int32)">
+            <summary>
+            读数据
+            </summary>
+            <param name="segment">段地址</param>
+            <param name="page">页地址</param>
+            <param name="size">读取长度</param>
+            <returns>返回数据</returns>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.ICache.Set(System.Int64,System.Int64,System.Byte[])">
+            <summary>
+            写数据
+            </summary>
+            <param name="segment">段地址</param>
+            <param name="page">页地址</param>
+            <param name="data">写入数据</param>
+        </member>
+        <member name="T:SkyVM.InterfaceModule.INet">
+            <summary>
+            网络接口
+            </summary>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.INet.CreateConnection(System.Int32,System.Int32,System.Byte[],System.Int16,SkyVM.InterfaceModule.IP_Type,SkyVM.InterfaceModule.Protocol_Type,SkyVM.InterfaceModule.Connection_Model)">
+            <summary>
+            建立网络连接
+            </summary>
+            <param name="process_id">进程ID</param>
+            <param name="connection_id">网络连接编号</param>
+            <param name="ip_address">对端IP地址</param>
+            <param name="ip_port">对端IP端口</param>
+            <param name="ip_type">IP地址类型</param>
+            <param name="protocol_type">连接协议类型</param>
+            <param name="connection_model">连接模式</param>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.INet.PauseConnection(System.Int32,System.Int32)">
+            <summary>
+            暂停网络连接
+            </summary>
+            <param name="process_id">进程ID</param>
+            <param name="connection_id">网络连接编号</param>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.INet.ResetConnection(System.Int32,System.Int32)">
+            <summary>
+            复位网络连接
+            </summary>
+            <param name="process_id">进程ID</param>
+            <param name="connection_id">网络连接编号</param>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.INet.StopConnection(System.Int32,System.Int32)">
+            <summary>
+            终止网络连接
+            </summary>
+            <param name="process_id">进程ID</param>
+            <param name="connection_id">网络连接编号</param>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.INet.GetPort(System.Int32,System.Int32,SkyVM.InterfaceModule.Port_Type)">
+            <summary>
+            获取网络连接端口号
+            </summary>
+            <param name="process_id">进程ID</param>
+            <param name="connection_id">网络连接编号</param>
+            <param name="port_type">获取的端口类型</param>
+            <returns>返回端口号</returns>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.INet.Send(System.Int32,System.Int32,System.Byte[])">
+            <summary>
+            发送数据
+            </summary>
+            <param name="process_id">进程ID</param>
+            <param name="connection_id">网络连接编号</param>
+            <param name="data">数据体</param>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.INet.Receive(System.Int32,System.Int32)">
+            <summary>
+            接收数据
+            </summary>
+            <param name="process_id">进程ID</param>
+            <param name="connection_id">网络连接编号</param>
+            <returns>返回数据</returns>
+        </member>
+        <member name="T:SkyVM.InterfaceModule.TimeOperation_Type">
+            <summary>
+            时间操作类型
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.TimeOperation_Type.Year">
+            <summary>
+            年
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.TimeOperation_Type.Month">
+            <summary>
+            月
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.TimeOperation_Type.Day">
+            <summary>
+            日
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.TimeOperation_Type.Hour">
+            <summary>
+            小时
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.TimeOperation_Type.Minute">
+            <summary>
+            分钟
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.TimeOperation_Type.Second">
+            <summary>
+            秒
+            </summary>
+        </member>
+        <member name="T:SkyVM.InterfaceModule.IP_Type">
+            <summary>
+            IP地址类型
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.IP_Type.IPv4">
+            <summary>
+            第四代IP地址
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.IP_Type.IPv6">
+            <summary>
+            第六代IP地址
+            </summary>
+        </member>
+        <member name="T:SkyVM.InterfaceModule.Protocol_Type">
+            <summary>
+            协议类型
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.Protocol_Type.TCP_IP">
+            <summary>
+            传输控制协议/网际协议
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.Protocol_Type.UDP">
+            <summary>
+            用户数据报协议
+            </summary>
+        </member>
+        <member name="T:SkyVM.InterfaceModule.Connection_Model">
+            <summary>
+            连接类型
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.Connection_Model.Server">
+            <summary>
+            服务器
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.Connection_Model.Client">
+            <summary>
+            客户端
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.Connection_Model.Mix">
+            <summary>
+            混合模式
+            </summary>
+        </member>
+        <member name="T:SkyVM.InterfaceModule.Port_Type">
+            <summary>
+            端口类型
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.Port_Type.Server">
+            <summary>
+            服务器端口
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.Port_Type.Client">
+            <summary>
+            客户端端口
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.Port_Type.Auto">
+            <summary>
+            自动端口
+            </summary>
+        </member>
+        <member name="T:SkyVM.InterfaceModule.IALUnit">
+            <summary>
+            运算逻辑单元接口
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.IALUnit.Complex">
+            <summary>
+            复杂运算接口
+            </summary>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IALUnit.#ctor(SkyVM.InterfaceModule.IComplexOperation)">
+            <summary>
+            运算逻辑单元构造函数
+            </summary>
+            <param name="complex">复杂运算单元接口</param>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IALUnit.Calculate(SkyVM.InterfaceModule.Symbol_Flag@,System.Boolean@,System.String,SkyVM.InterfaceModule.CalculateParameter[])">
+            <summary>
+            运算方法
+            </summary>
+            <param name="flag">符号标志位</param>
+            <param name="overflow">溢出标志位</param>
+            <param name="operation">运算符</param>
+            <param name="parameters">参数表</param>
+            <returns>返回运算结果</returns>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IALUnit.OperateTest(System.String)">
+            <summary>
+            运算符检测
+            </summary>
+            <param name="operation">运算名</param>
+            <returns>返回检测结果</returns>
+        </member>
+        <member name="T:SkyVM.InterfaceModule.IComplexOperation">
+            <summary>
+            复杂运算模块接口
+            </summary>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IComplexOperation.ComplexCalculate(SkyVM.InterfaceModule.Symbol_Flag@,System.Boolean@,System.String,SkyVM.InterfaceModule.CalculateParameter[])">
+            <summary>
+            复杂运算通用函数接口
+            </summary>
+            <param name="flag">运算结果标志位</param>
+            <param name="overflow">运算溢出标志位</param>
+            <param name="operation">运算类型</param>
+            <param name="parameters">传入参数列表</param>
+            <returns>返回运算结果</returns>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IComplexOperation.OperateTest(System.String)">
+            <summary>
+            操作检测
+            </summary>
+            <param name="operation">运算名</param>
+            <returns>返回检测结果</returns>
+        </member>
+        <member name="T:SkyVM.InterfaceModule.CalculateParameter">
+            <summary>
+            运算参数类
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.CalculateParameter.Data">
+            <summary>
+            运算数字节数组
+            </summary>
+        </member>
+        <member name="T:SkyVM.InterfaceModule.Symbol_Flag">
+            <summary>
+            运算器符号位标识
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.Symbol_Flag.Positive">
+            <summary>
+            正数标志
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.Symbol_Flag.Negative">
+            <summary>
+            负数标志
+            </summary>
+        </member>
+        <member name="F:SkyVM.InterfaceModule.Symbol_Flag.Zero">
+            <summary>
+            零标识
+            </summary>
+        </member>
+        <member name="T:SkyVM.InterfaceModule.IDevice">
+            <summary>
+            IO设备接口
+            </summary>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IDevice.DeviceActive(System.Int32)">
+            <summary>
+            激活设备
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IDevice.DevicePause(System.Int32)">
+            <summary>
+            暂停设备
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IDevice.DeviceReset(System.Int32)">
+            <summary>
+            复位设备
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IDevice.DeviceClose(System.Int32)">
+            <summary>
+            关闭设备
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IDevice.DeviceRead(System.Int32)">
+            <summary>
+            读设备
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+            <returns>返回数据</returns>
+        </member>
+        <member name="M:SkyVM.InterfaceModule.IDevice.DeviceWrite(System.Int32,System.Byte[])">
+            <summary>
+            写设备
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+            <param name="data">写入数据</param>
+        </member>
+    </members>
+</doc>
