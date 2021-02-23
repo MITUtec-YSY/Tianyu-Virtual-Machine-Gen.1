@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28711.60
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "虚拟机测试-数据交互", "虚拟机测试-数据交互\虚拟机测试-数据交互.csproj", "{9ABBE594-ECFB-4AE6-9D34-A3099E3679A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9ABBE594-ECFB-4AE6-9D34-A3099E3679A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ABBE594-ECFB-4AE6-9D34-A3099E3679A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ABBE594-ECFB-4AE6-9D34-A3099E3679A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ABBE594-ECFB-4AE6-9D34-A3099E3679A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C700FD67-7E6A-4D5B-ABD4-3AA689FA613B}
+	EndGlobalSection
+EndGlobal
