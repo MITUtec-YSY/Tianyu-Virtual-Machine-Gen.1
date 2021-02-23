@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SkyVM.IOModule</name>
+    </assembly>
+    <members>
+        <member name="T:SkyVM.IOModule.IOUnit">
+            <summary>
+            设备控制器
+            </summary>
+        </member>
+        <member name="F:SkyVM.IOModule.IOUnit.InterruptTables">
+            <summary>
+            设备中断号-设备标识符对照表
+            </summary>
+        </member>
+        <member name="F:SkyVM.IOModule.IOUnit.DeviceIDTables">
+            <summary>
+            设备号-设备标识符对照表
+            </summary>
+        </member>
+        <member name="F:SkyVM.IOModule.IOUnit.DeviceTables">
+            <summary>
+            设备标识符-设备主体对照表
+            </summary>
+        </member>
+        <member name="F:SkyVM.IOModule.IOUnit.FreeInterruptTable">
+            <summary>
+            空闲中断表
+            </summary>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.#ctor(SkyVM.InterfaceModule.IDeviceControlInterrupt)">
+            <summary>
+            IO组件构造函数
+            </summary>
+            <param name="interrupt">设备控制器中断接口</param>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.AddDevice(System.Int32,SkyVM.InterfaceModule.IOBase)">
+            <summary>
+            添加一个设备
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+            <param name="device">设备实例</param>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.DeleteDevice(System.Int32)">
+            <summary>
+            移除一个设备
+            </summary>
+            <param name="device_id">设备中断号</param>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.DeviceActive(System.Int32)">
+            <summary>
+            激活设备
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.DeviceClose(System.Int32)">
+            <summary>
+            关闭设备
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.DevicePause(System.Int32)">
+            <summary>
+            暂停设备
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.DeviceRead(System.Int32)">
+            <summary>
+            读设备
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+            <returns>返回数据</returns>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.DeviceReset(System.Int32)">
+            <summary>
+            复位设备
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.DeviceWrite(System.Int32,System.Byte[])">
+            <summary>
+            写设备
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+            <param name="data">数据包</param>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.GetDevice(System.Int32)">
+            <summary>
+            获取指定设备的信息
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+            <returns>返回设备数据</returns>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.GetDevices">
+            <summary>
+            获取所有设备的信息
+            </summary>
+            <returns>返回设备数据组</returns>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.LoadDevice(System.Int32,SkyVM.InterfaceModule.IOBase)">
+            <summary>
+            载入一个设备
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+            <param name="device">设备实例</param>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.UnloadDevice(System.Int32)">
+            <summary>
+            卸载一个设备
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.SkyVM#InterfaceModule#IDeviceInterrupt#Interrupt(SkyVM.InterfaceModule.DeviceException_Type,System.String)">
+            <summary>
+            设备管理器异常处理方法
+            </summary>
+            <param name="exception">设备异常类型</param>
+            <param name="device_id">设备中断号</param>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.AddInterruptService(System.Int32,System.String[])">
+            <summary>
+            添加中断服务程序
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+            <param name="programs">服务程序</param>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.DelInterruptService(System.Int32,System.String)">
+            <summary>
+            移除设备的指定中断服务程序
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+            <param name="program">中断服务程序</param>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.CleanInterruptService(System.Int32)">
+            <summary>
+            清除设备中断服务程序
+            </summary>
+            <param name="interrupt_id">设备中断号</param>
+        </member>
+        <member name="M:SkyVM.IOModule.IOUnit.SetInterrupt(System.Int32,System.Int32)">
+            <summary>
+            设置新的设备中断号
+            </summary>
+            <param name="device_id">设备号</param>
+            <param name="new_interrupt">中断号</param>
+        </member>
+        <member name="F:SkyVM.IOModule.IOUnit.DeviceTable.RunState">
+            <summary>
+            设备运行时状态-true：设备在线 | false：设备已卸载
+            </summary>
+        </member>
+        <member name="T:SkyVM.IOModule.INetConnect">
+            <summary>
+            网络连接底层接口
+            </summary>
+        </member>
+        <member name="M:SkyVM.IOModule.INetConnect.CreateConnect(System.String,System.Int32,SkyVM.InterfaceModule.IP_Type,SkyVM.InterfaceModule.Protocol_Type,SkyVM.InterfaceModule.Connection_Model)">
+            <summary>
+            创建一个链接
+            </summary>
+            <param name="ip_address">ip_address</param>
+            <param name="ip_port">ip_port</param>
+            <param name="ip_type">ip_type</param>
+            <param name="protocol_type">protocol_type</param>
+            <param name="connection_model">connection_model</param>
+            <returns>返回一个链接实例</returns>
+        </member>
+        <member name="T:SkyVM.IOModule.INetConnection">
+            <summary>
+            网络链接基类
+            </summary>
+        </member>
+        <member name="F:SkyVM.IOModule.INetConnection.Interrupt">
+            <summary>
+            网络链接中断接口
+            </summary>
+        </member>
+        <member name="M:SkyVM.IOModule.INetConnection.#ctor(SkyVM.InterfaceModule.INetInterrupt)">
+            <summary>
+            网络链接基类构造函数
+            </summary>
+            <param name="interrupt">中断接口</param>
+        </member>
+        <member name="M:SkyVM.IOModule.INetConnection.Send(System.Byte[])">
+            <summary>
+            发送数据
+            </summary>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:SkyVM.IOModule.INetConnection.Receive">
+            <summary>
+            接收数据
+            </summary>
+            <returns>返回数据</returns>
+        </member>
+        <member name="M:SkyVM.IOModule.INetConnection.Pause">
+            <summary>
+            暂停连接
+            </summary>
+        </member>
+        <member name="M:SkyVM.IOModule.INetConnection.Reset">
+            <summary>
+            重置连接
+            </summary>
+        </member>
+        <member name="M:SkyVM.IOModule.INetConnection.Stop">
+            <summary>
+            断开连接
+            </summary>
+        </member>
+        <member name="M:SkyVM.IOModule.INetConnection.GetPort(SkyVM.InterfaceModule.Port_Type)">
+            <summary>
+            获取连接的指定接口
+            </summary>
+            <param name="port_type">端口类型</param>
+            <returns>返回端口号</returns>
+        </member>
+        <member name="T:SkyVM.IOModule.NetUnit">
+            <summary>
+            网络控制器
+            </summary>
+        </member>
+        <member name="P:SkyVM.IOModule.NetUnit.FreeConnNumberTable">
+            <summary>
+            空闲连接号表
+            </summary>
+        </member>
+        <member name="P:SkyVM.IOModule.NetUnit.ConnectionTable">
+            <summary>
+            网络连接表
+            </summary>
+        </member>
+        <member name="M:SkyVM.IOModule.NetUnit.#ctor(SkyVM.IOModule.INetConnect,SkyVM.InterfaceModule.INetControlInterrupt)">
+            <summary>
+            网络组件构造函数
+            </summary>
+            <param name="net_control">网络连接底层接口实例</param>
+            <param name="interrupt">网络控制器中断接口</param>
+        </member>
+        <member name="M:SkyVM.IOModule.NetUnit.CreateConnection(System.String,System.Int32,SkyVM.InterfaceModule.IP_Type,SkyVM.InterfaceModule.Protocol_Type,SkyVM.InterfaceModule.Connection_Model)">
+            <summary>
+            建立网络连接
+            </summary>
+            <param name="ip_address">对端IP地址</param>
+            <param name="ip_port">对端IP端口</param>
+            <param name="ip_type">IP地址类型</param>
+            <param name="protocol_type">连接协议类型</param>
+            <param name="connection_model">连接模式</param>
+        </member>
+        <member name="M:SkyVM.IOModule.NetUnit.GetPort(System.Int32,SkyVM.InterfaceModule.Port_Type)">
+            <summary>
+            获取网络连接端口号
+            </summary>
+            <param name="connection_id">网络连接编号</param>
+            <param name="port_type">获取的端口类型</param>
+            <returns>返回端口号</returns>
+        </member>
+        <member name="M:SkyVM.IOModule.NetUnit.PauseConnection(System.Int32)">
+            <summary>
+            暂停网络连接
+            </summary>
+            <param name="connection_id">网络连接编号</param>
+        </member>
+        <member name="M:SkyVM.IOModule.NetUnit.Receive(System.Int32)">
+            <summary>
+            接收数据
+            </summary>
+            <param name="connection_id">网络连接编号</param>
+            <returns>返回数据</returns>
+        </member>
+        <member name="M:SkyVM.IOModule.NetUnit.ResetConnection(System.Int32)">
+            <summary>
+            复位网络连接
+            </summary>
+            <param name="connection_id">网络连接编号</param>
+        </member>
+        <member name="M:SkyVM.IOModule.NetUnit.Send(System.Int32,System.Byte[])">
+            <summary>
+            发送数据
+            </summary>
+            <param name="connection_id">网络连接编号</param>
+            <param name="data">数据体</param>
+        </member>
+        <member name="M:SkyVM.IOModule.NetUnit.StopConnection(System.Int32)">
+            <summary>
+            终止网络连接
+            </summary>
+            <param name="connection_id">网络连接编号</param>
+        </member>
+        <member name="M:SkyVM.IOModule.NetUnit.Interrupt(SkyVM.InterfaceModule.NetException_Type,System.Int32)">
+            <summary>
+            网络连接中断接口
+            </summary>
+            <param name="exception">网络连接中断类型</param>
+            <param name="connection_id">连接ID</param>
+        </member>
+        <member name="T:SkyVM.IOModule.NetUnit.Net_Parameter">
+            <summary>
+            网络数据包
+            </summary>
+        </member>
+        <member name="F:SkyVM.IOModule.NetUnit.Net_Parameter.ip_address">
+            <summary>
+            连接IP地址
+            </summary>
+        </member>
+        <member name="F:SkyVM.IOModule.NetUnit.Net_Parameter.ip_port">
+            <summary>
+            连接端口
+            </summary>
+        </member>
+        <member name="F:SkyVM.IOModule.NetUnit.Net_Parameter.ip_type">
+            <summary>
+            IP地址类型
+            </summary>
+        </member>
+        <member name="F:SkyVM.IOModule.NetUnit.Net_Parameter.protocol_type">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SkyVM.IOModule.NetUnit.Net_Parameter.connection_model">
+            <summary>
+            连接模式
+            </summary>
+        </member>
+        <member name="F:SkyVM.IOModule.NetUnit.Net_Parameter.Connection">
+            <summary>
+            连接主体
+            </summary>
+        </member>
+    </members>
+</doc>

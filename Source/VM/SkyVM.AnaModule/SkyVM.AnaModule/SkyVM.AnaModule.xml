@@ -1,0 +1,1144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SkyVM.AnaModule</name>
+    </assembly>
+    <members>
+        <member name="T:SkyVM.AnaModule.PublicDataStack">
+            <summary>
+            公共数据堆栈
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.PublicDataStack.#ctor">
+            <summary>
+            公共数据堆栈构造函数
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.PublicDataStack.Push(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            数据入栈
+            </summary>
+            <param name="d1">内存块1</param>
+            <param name="d2">内存块2</param>
+            <param name="d3">内存块3</param>
+            <param name="d4">内存块4</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.PublicDataStack.Pop(System.Byte@,System.Byte@,System.Byte@,System.Byte@)">
+            <summary>
+            数据出栈
+            </summary>
+            <param name="d1">内存块1</param>
+            <param name="d2">内存块2</param>
+            <param name="d3">内存块3</param>
+            <param name="d4">内存块4</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.PublicDataStack.Peek(System.Byte@,System.Byte@,System.Byte@,System.Byte@)">
+            <summary>
+            查看数据栈顶
+            </summary>
+            <param name="d1">内存块1</param>
+            <param name="d2">内存块2</param>
+            <param name="d3">内存块3</param>
+            <param name="d4">内存块4</param>
+        </member>
+        <member name="T:SkyVM.AnaModule.ParameterList">
+            <summary>
+            参数列表
+            </summary>
+        </member>
+        <member name="P:SkyVM.AnaModule.ParameterList.Count">
+            <summary>
+            获取参数数目
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.ParameterList.#ctor">
+            <summary>
+            参数列表构造函数
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.ParameterList.Add(SkyVM.AnaModule.Parameter_Type,System.Object)">
+            <summary>
+            添加一个参数
+            </summary>
+            <param name="type">参数类型</param>
+            <param name="para">参数主体</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.ParameterList.GetParameters">
+            <summary>
+            获取整个参数列表
+            </summary>
+            <returns>返回参数列表</returns>
+        </member>
+        <member name="T:SkyVM.AnaModule.ParameterList.ParameterPackage">
+            <summary>
+            参数列表参数从传递包
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.ParameterList.ParameterPackage.Type">
+            <summary>
+            参数类型
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.ParameterList.ParameterPackage.Parameter">
+            <summary>
+            参数主体
+            </summary>
+        </member>
+        <member name="T:SkyVM.AnaModule.IToFileLoad">
+            <summary>
+            文件载入程序上层需求接口
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.IToFileLoad.CheckCalculateString(System.String)">
+            <summary>
+            数学运算符检测
+            </summary>
+            <param name="str">数学运算标签</param>
+            <returns>返回检测结果</returns>
+        </member>
+        <member name="T:SkyVM.AnaModule.InstructionList">
+            <summary>
+            指令列表
+            </summary>
+        </member>
+        <member name="P:SkyVM.AnaModule.InstructionList.Count">
+            <summary>
+            获取总程序指令个数
+            </summary>
+        </member>
+        <member name="P:SkyVM.AnaModule.InstructionList.PC">
+            <summary>
+            获取当前的程序指针
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.InstructionList.#ctor">
+            <summary>
+            指令列表构造函数
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.InstructionList.Add(SkyVM.AnaModule.Instructuions_Package,SkyVM.AnaModule.ParameterList.ParameterPackage[])">
+            <summary>
+            添加指令方法
+            </summary>
+            <param name="instructuion">指令类型</param>
+            <param name="parameters">参数列表</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.InstructionList.EndRead">
+            <summary>
+            结束程序方法-用于读取文件完成后在最后加入一条本地结束指令
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.InstructionList.GetNext">
+            <summary>
+            获取下一条指令
+            </summary>
+            <returns>返回下一条指令</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.InstructionList.Jmp(System.Int32)">
+            <summary>
+            指令跳转
+            </summary>
+            <param name="location">跳转定位</param>
+        </member>
+        <member name="T:SkyVM.AnaModule.InstructionList.InstructionPackage">
+            <summary>
+            指令传递包
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.InstructionList.InstructionPackage.Instructuion">
+            <summary>
+            指令操作
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.InstructionList.InstructionPackage.Parameters">
+            <summary>
+            参数表
+            </summary>
+        </member>
+        <member name="T:SkyVM.AnaModule.Expression">
+            <summary>
+            运算表达式过程表
+            </summary>
+        </member>
+        <member name="P:SkyVM.AnaModule.Expression.Count">
+            <summary>
+            获取当前过程数
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Expression.Label_N">
+            <summary>
+            获取当前表达式标签
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.Expression.#ctor">
+            <summary>
+            运算表达式过程表构造函数
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.Expression.Add(SkyVM.AnaModule.Expression.Expression_Operation,System.Boolean,System.Object,System.Boolean,System.Object)">
+            <summary>
+            添加一个运算过程
+            </summary>
+            <param name="op">运算符</param>
+            <param name="n1f">运算数1-类型</param>
+            <param name="n1">运算数1</param>
+            <param name="n2f">运算数2-类型</param>
+            <param name="n2">运算数2</param>
+            <returns>返回运算过程标号</returns>
+        </member>
+        <member name="P:SkyVM.AnaModule.Expression.Item(System.Int32)">
+            <summary>
+            运算过程索引器
+            </summary>
+            <param name="index">索引</param>
+            <returns>返回过程</returns>
+        </member>
+        <member name="T:SkyVM.AnaModule.Expression.OP">
+            <summary>
+            运算过程类（false：立即数 | true：过程号）
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Expression.OP.Operation">
+            <summary>
+            运算操作
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Expression.OP.N1_Flag">
+            <summary>
+            运算数1-类型
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Expression.OP.N1">
+            <summary>
+            运算数1
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Expression.OP.N2_Flag">
+            <summary>
+            运算数2-类型
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Expression.OP.N2">
+            <summary>
+            运算数2
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Expression.OP.Label">
+            <summary>
+            运算过程标签
+            </summary>
+        </member>
+        <member name="T:SkyVM.AnaModule.Expression.Expression_Operation">
+            <summary>
+            运算表达式操作
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Expression.Expression_Operation.ADD">
+            <summary>
+            加运算
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Expression.Expression_Operation.SUB">
+            <summary>
+            减运算
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Expression.Expression_Operation.MUL">
+            <summary>
+            乘运算
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Expression.Expression_Operation.DIV">
+            <summary>
+            除运算
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Expression.Expression_Operation.AND">
+            <summary>
+            与运算
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Expression.Expression_Operation.OR">
+            <summary>
+            或运算
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Expression.Expression_Operation.NOT">
+            <summary>
+            非运算
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Expression.Expression_Operation.XOR">
+            <summary>
+            异或运算
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Expression.Expression_Operation.GET">
+            <summary>
+            取值运算
+            </summary>
+        </member>
+        <member name="T:SkyVM.AnaModule.FileLoad">
+            <summary>
+            文件载入程序
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.FileLoad.#ctor(System.Int32,SkyVM.AnaModule.IToFileLoad)">
+            <summary>
+            文件载入程序构造函数
+            </summary>
+            <param name="memory_size">默认程序空间</param>
+            <param name="toFile">文件载入程序上次接口</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.FileLoad.Get">
+            <summary>
+            测试用接口
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.FileLoad.Complete(System.String)">
+            <summary>
+            执行文件编译
+            </summary>
+            <returns>返回程序段</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.FileLoad.GetVocabulary(SkyVM.AnaModule.FileLoad.Vocabulary_Type@)">
+            <summary>
+            词法分析与单词获取
+            </summary>
+            <param name="vocabulary">单词类型</param>
+            <returns>返回单词</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.FileLoad.ExpressionOption(System.String,System.Boolean@)">
+            <summary>
+            表达式处理
+            </summary>
+            <param name="source">表达式源字符串</param>
+            <param name="flag">返回值类型标识-（false：表达式类型 | true：值类型）</param>
+            <returns>返回表达式结果</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.FileLoad.CALAULATE(SkyVM.AnaModule.FileLoad.Node,SkyVM.AnaModule.Expression.Expression_Operation,SkyVM.AnaModule.FileLoad.Node,SkyVM.AnaModule.Expression)">
+            <summary>
+            表达式单过程求值
+            </summary>
+            <param name="a">运算数1</param>
+            <param name="sign">运算符</param>
+            <param name="b">运算数2</param>
+            <param name="expression">运算过程表</param>
+            <returns>返回运算结果数</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.FileLoad.GetInstructuions(System.String)">
+            <summary>
+            获取操作指令
+            </summary>
+            <param name="str">指令字符串</param>
+            <returns>返回指令</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.FileLoad.CheckInstructuion(SkyVM.AnaModule.Instructuions_Package,SkyVM.AnaModule.ParameterList.ParameterPackage[])">
+            <summary>
+            指令错误检查
+            </summary>
+            <param name="instructuion">指令名</param>
+            <param name="parameters">参数列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.FileLoad.OPSET(System.Char)">
+            <summary>
+            运算符检测
+            </summary>
+            <param name="op">符号</param>
+            <returns>返回结果</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.FileLoad.OPPRI(System.Char,System.Char)">
+            <summary>
+            算符优先检测
+            </summary>
+            <param name="op_ahead">栈顶符号</param>
+            <param name="op_now">当前符号</param>
+            <returns>返回优先级</returns>
+        </member>
+        <member name="T:SkyVM.AnaModule.FileLoad.Node">
+            <summary>
+            运算数包
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.FileLoad.Node.data">
+            <summary>
+            运算数
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.FileLoad.Node.flag">
+            <summary>
+            运算数类型
+            </summary>
+        </member>
+        <member name="T:SkyVM.AnaModule.FileLoad.OP_PRI">
+            <summary>
+            算符优先级
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.FileLoad.OP_PRI.LOW">
+            <summary>
+            低优先级
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.FileLoad.OP_PRI.EQUAL">
+            <summary>
+            相等优先级-去括号
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.FileLoad.OP_PRI.HIGH">
+            <summary>
+            高优先级
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.FileLoad.OP_PRI.NONE">
+            <summary>
+            错误运算符匹配
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.FileLoad.Vocabulary_Type.SIGN">
+            <summary>
+            符号类型
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.FileLoad.Vocabulary_Type.Expression">
+            <summary>
+            表达式类型
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.FileLoad.Vocabulary_Type.BigNumber">
+            <summary>
+            立即数类型-大整数
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.FileLoad.Vocabulary_Type.Long">
+            <summary>
+            立即数类型-长整数
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.FileLoad.Vocabulary_Type.STR">
+            <summary>
+            字符串类型
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.FileLoad.Vocabulary_Type.NONE">
+            <summary>
+            未知的类型
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.FileLoad.Vocabulary_Type.END">
+            <summary>
+            文件读取完毕
+            </summary>
+        </member>
+        <member name="T:SkyVM.AnaModule.Instructuions_Package">
+            <summary>
+            操作指令类型包
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.NOP">
+            <summary>
+            空程序指令
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.END">
+            <summary>
+            本地结束指令
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Ret">
+            <summary>
+            过程调用返回
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Jmp">
+            <summary>
+            无条件跳转语句
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.JNS">
+            <summary>
+            运算标识为正时跳转
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.JS">
+            <summary>
+            运算标识为负时跳转
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.JZ">
+            <summary>
+            运算标识为零时跳转
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.PUSH">
+            <summary>
+            数据入栈
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.POP">
+            <summary>
+            数据出栈
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Calculate">
+            <summary>
+            运算指令组（运算指令无需解析，只需读取后交由运算接口进行处理）
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Rand">
+            <summary>
+            随机数生成
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Scan">
+            <summary>
+            键盘读取
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Print">
+            <summary>
+            输出字符串
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Putc">
+            <summary>
+            输出字符
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Connect">
+            <summary>
+            创建一个网络连接
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Send">
+            <summary>
+            通过网络发送数据
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Receive">
+            <summary>
+            从网络接收数据
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.GetPort">
+            <summary>
+            获取一个网络的端口
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Create">
+            <summary>
+            创建一个文件
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Delete">
+            <summary>
+            删除一个文件
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Position">
+            <summary>
+            修改文件操作指针
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Set_Memory">
+            <summary>
+            设置内存大小
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.New_Memory">
+            <summary>
+            申请新内存空间
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Free_Memory">
+            <summary>
+            释放一个内存空间
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Init_Memory">
+            <summary>
+            初始化内存（赋值操作）
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Read_Time">
+            <summary>
+            获取系统时间
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Write_Time">
+            <summary>
+            修改系统时间
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Sync_Time">
+            <summary>
+            同步系统时间
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Act_Device">
+            <summary>
+            激活设备
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Pause_Device">
+            <summary>
+            暂停设备
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Reset_Device">
+            <summary>
+            重启设备
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Close_Device">
+            <summary>
+            关闭设备
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Read_Device">
+            <summary>
+            从设备读取数据
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Write_Device">
+            <summary>
+            向设备写入数据
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Pause_Net">
+            <summary>
+            暂停一个网络连接
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Reset_Net">
+            <summary>
+            恢复一个网络连接
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Close_Net">
+            <summary>
+            关闭一个网络连接
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Open_File">
+            <summary>
+            打开文件
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Close_File">
+            <summary>
+            关闭文件
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Read_File">
+            <summary>
+            读取文件
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Write_File">
+            <summary>
+            写入文件
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Copy_File">
+            <summary>
+            拷贝文件
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Init_Process">
+            <summary>
+            新建一个进程
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.End_Process">
+            <summary>
+            结束本进程
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Switch_Process">
+            <summary>
+            进程切换
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Init_Thread">
+            <summary>
+            加载一个外部文件
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.End_Thread">
+            <summary>
+            结束加载文件
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Outside_Call">
+            <summary>
+            外部调用
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Local_Call">
+            <summary>
+            本地调用
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Read_BasePool">
+            <summary>
+            读取基础缓冲区
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Write_BasePool">
+            <summary>
+            写入基础缓冲区
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Read_SpecialPool">
+            <summary>
+            读取专用缓冲区
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Write_SpecialPool">
+            <summary>
+            写入专用缓冲区
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Set_TimeSlice">
+            <summary>
+            设置时间片
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Get_TimeSlice">
+            <summary>
+            获取时间片
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Instructuions_Package.Get_Core">
+            <summary>
+            获取核心数
+            </summary>
+        </member>
+        <member name="T:SkyVM.AnaModule.Parameter_Type">
+            <summary>
+            指令操作数
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Parameter_Type.Expression">
+            <summary>
+            表达式类型
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Parameter_Type.BigNumber">
+            <summary>
+            立即数类型-大整数
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Parameter_Type.Long">
+            <summary>
+            立即数类型-长整数
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Parameter_Type.STR">
+            <summary>
+            字符串类型
+            </summary>
+        </member>
+        <member name="T:SkyVM.AnaModule.ProgramLoadTable">
+            <summary>
+            程序加载表
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramLoadTable.#ctor">
+            <summary>
+            程序加载表构造函数
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramLoadTable.Add(System.String,System.Int32)">
+            <summary>
+            新加载一个程序
+            </summary>
+            <param name="key">程序别名</param>
+            <param name="value">程序编号</param>
+            <returns>返回添加状态</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramLoadTable.Del(System.String)">
+            <summary>
+            删除一个程序
+            </summary>
+            <param name="key">程序别名</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramLoadTable.GetProgram(System.String)">
+            <summary>
+            获取程序编号
+            </summary>
+            <param name="key">程序别名</param>
+            <returns>返回程序编号</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramLoadTable.GetProgram(System.Int32)">
+            <summary>
+            获取程序别名
+            </summary>
+            <param name="id">程序ID</param>
+            <returns>返回别名</returns>
+        </member>
+        <member name="T:SkyVM.AnaModule.ProgramEXT">
+            <summary>
+            程序行进表
+            </summary>
+        </member>
+        <member name="P:SkyVM.AnaModule.ProgramEXT.Count">
+            <summary>
+            程序调用队列
+            </summary>
+        </member>
+        <member name="P:SkyVM.AnaModule.ProgramEXT.GetProgram">
+            <summary>
+            获取当前正在运行的程序
+            </summary>
+        </member>
+        <member name="P:SkyVM.AnaModule.ProgramEXT.GetPC">
+            <summary>
+            获取当前正在运行的程序的回调指针
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramEXT.#ctor">
+            <summary>
+            程序行进表构造函数
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramEXT.NewProgram(System.Int32)">
+            <summary>
+            新程序调度-用于外部调用以及程序调用中断
+            </summary>
+            <param name="code">新程序号</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramEXT.CallFunction(System.Int32)">
+            <summary>
+            过程调度-用于所有的程序调度后回调指针的保存
+            </summary>
+            <param name="pc">程序指针</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramEXT.CallBackProgram">
+            <summary>
+            程序回调-用于外部调用回调与程序调用中断回调
+            </summary>
+            <returns>返回回调结果</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramEXT.CallBackFunction(System.Int32@)">
+            <summary>
+            过程回调-用于所有的程序调度后的指针返回
+            </summary>
+            <param name="pc">回调指针</param>
+            <returns>返回回调结果</returns>
+        </member>
+        <member name="T:SkyVM.AnaModule.ProgramEXT.CallBack_Flag">
+            <summary>
+            程序回调结果
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.ProgramEXT.CallBack_Flag.CALLBACK_FUNCTION">
+            <summary>
+            回调成功-回调结果为过程回调
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.ProgramEXT.CallBack_Flag.CALLBACK_PROGRAM">
+            <summary>
+            回调成功-回调结果为程序回调
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.ProgramEXT.CallBack_Flag.CALLBACK_END">
+            <summary>
+            回调失败-进程需结束
+            </summary>
+        </member>
+        <member name="T:SkyVM.AnaModule.ProgramUnit">
+            <summary>
+            程序单元
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.ProgramUnit.MemorySpace">
+            <summary>
+            内存空间
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.ProgramUnit.MemorySize">
+            <summary>
+            内存空间大小
+            </summary>
+        </member>
+        <member name="P:SkyVM.AnaModule.ProgramUnit.PC">
+            <summary>
+            运行程序指针
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramUnit.#ctor">
+            <summary>
+            程序单元构造函数
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramUnit.Get">
+            <summary>
+            程序表测试输出
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramUnit.AddID(System.String)">
+            <summary>
+            添加一个标识符
+            </summary>
+            <param name="id">标识符名</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramUnit.EndRead">
+            <summary>
+            程序文件读取结束
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramUnit.Add(SkyVM.AnaModule.Instructuions_Package,SkyVM.AnaModule.ParameterList.ParameterPackage[])">
+            <summary>
+            添加指令方法
+            </summary>
+            <param name="instructuion">指令类型</param>
+            <param name="parameters">参数列表</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramUnit.GetInstruction">
+            <summary>
+            获取一条指令
+            </summary>
+            <returns>返回当前执行指令的下一条指令</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramUnit.Jmp(System.Int32)">
+            <summary>
+            非指令跳转
+            </summary>
+            <param name="location">跳转位置</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.ProgramUnit.Jmp(System.String)">
+            <summary>
+            指令跳转
+            </summary>
+            <param name="id">跳转标签</param>
+        </member>
+        <member name="T:SkyVM.AnaModule.Process">
+            <summary>
+            进程
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Process.Running">
+            <summary>
+            程序运行标志
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Process.Time">
+            <summary>
+            进程运行时
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Process.MainProgramCode">
+            <summary>
+            进程号（主程序号）
+            </summary>
+        </member>
+        <member name="P:SkyVM.AnaModule.Process.PC">
+            <summary>
+            获取当前运行的程序指针
+            </summary>
+        </member>
+        <member name="P:SkyVM.AnaModule.Process.Segment">
+            <summary>
+            获取程序段地址
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Process.RunTable">
+            <summary>
+            程序行进表
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Process.LoadTable">
+            <summary>
+            程序加载表
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Process.DataStack">
+            <summary>
+            公共数据堆栈
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Process.MOCCTable">
+            <summary>
+            内存占用表
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Process.FileTabel">
+            <summary>
+            文件表
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Process.ConnectTabel">
+            <summary>
+            网络连接表
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Process.MainProgram">
+            <summary>
+            主程序单元
+            </summary>
+        </member>
+        <member name="F:SkyVM.AnaModule.Process.ProgramTable">
+            <summary>
+            程序表
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.#ctor(System.Int32,SkyVM.AnaModule.ProgramUnit,System.Int32)">
+            <summary>
+            进程构造函数
+            </summary>
+            <param name="pid">进程号-主程序号</param>
+            <param name="main_program">主进程程序段</param>
+            <param name="s_size">公共数据堆栈大小</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.Next">
+            <summary>
+            获取下一条指令
+            </summary>
+            <returns>返回指令</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.Jmp(System.String)">
+            <summary>
+            程序跳转指令
+            </summary>
+            <param name="label">跳转标签</param>
+            <returns>返回跳转结果</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.Call(System.String,System.String)">
+            <summary>
+            程序调用指令
+            </summary>
+            <param name="label">过程标签</param>
+            <param name="p_name">调用过程程序段别名（外部调用时使用）</param>
+            <returns>返回调用结果</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.Ret">
+            <summary>
+            调用返回指令
+            </summary>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.AddMemory(System.Int64,System.Int32)">
+            <summary>
+            添加一个申请的内存记录
+            </summary>
+            <param name="mem_id">内存块号</param>
+            <param name="mem_size">内存长度</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.DelMemory(System.Int64)">
+            <summary>
+            删除一个申请内存记录
+            </summary>
+            <param name="mem_id">内存块号</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.GetMemSize(System.Int64)">
+            <summary>
+            获取指定内存块申请大小
+            </summary>
+            <param name="mem_id">内存块号</param>
+            <returns>返回申请大小</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.Contains(System.Int64)">
+            <summary>
+            检测内存有效性
+            </summary>
+            <param name="mem_id">内存块号</param>
+            <returns>返回结果</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.GetAllMemorys">
+            <summary>
+            获取所有占用内存
+            </summary>
+            <returns>返回占用表</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.AddConnect(System.String,System.Int32)">
+            <summary>
+            添加网络连接
+            </summary>
+            <param name="label">网络连接标签</param>
+            <param name="conn_id">网络连接号</param>
+            <returns>返回覆盖的网络连接</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.DelConnect(System.String)">
+            <summary>
+            删除网络连接
+            </summary>
+            <param name="label">网络连接标签</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.GetConnect(System.String)">
+            <summary>
+            获取网络连接号
+            </summary>
+            <param name="label">网络连接标签</param>
+            <returns>返回网络连接号</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.GetConnects">
+            <summary>
+            获取所有网络连接
+            </summary>
+            <returns>返回网络连接组</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.AddFile(System.String,System.Int32)">
+            <summary>
+            添加文件连接
+            </summary>
+            <param name="label">文件标识符</param>
+            <param name="file_id">文件号</param>
+            <returns>返回覆盖的文件号</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.DelFile(System.String)">
+            <summary>
+            删除文件连接
+            </summary>
+            <param name="label">文件标识符</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.GetFile(System.String)">
+            <summary>
+            获取文件连接号
+            </summary>
+            <param name="label">文件标识符</param>
+            <returns>返回文件连接号</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.GetFiles">
+            <summary>
+            获取所有文件连接
+            </summary>
+            <returns>返回文件连接组</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.AddProgram(System.Int32,System.String,SkyVM.AnaModule.ProgramUnit)">
+            <summary>
+            载入一个程序段
+            </summary>
+            <param name="p_id">程序ID</param>
+            <param name="p_name">程序别名</param>
+            <param name="program">程序主体</param>
+            <returns>返回加载结果</returns>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.DelProgram(System.String)">
+            <summary>
+            删除一个程序段
+            </summary>
+            <param name="p_name">程序段别名</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.Push(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            数据入栈
+            </summary>
+            <param name="d1">内存块1</param>
+            <param name="d2">内存块2</param>
+            <param name="d3">内存块3</param>
+            <param name="d4">内存块4</param>
+        </member>
+        <member name="M:SkyVM.AnaModule.Process.Pop(System.Byte@,System.Byte@,System.Byte@,System.Byte@)">
+            <summary>
+            数据出栈
+            </summary>
+            <param name="d1">内存块1</param>
+            <param name="d2">内存块2</param>
+            <param name="d3">内存块3</param>
+            <param name="d4">内存块4</param>
+            <returns>返回出栈结果</returns>
+        </member>
+    </members>
+</doc>

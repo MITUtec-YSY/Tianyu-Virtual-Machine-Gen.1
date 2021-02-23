@@ -1,0 +1,13 @@
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.IOModule\SkyVM.IOModule\bin\Release\netstandard2.0\SkyVM.IOModule.deps.json
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.IOModule\SkyVM.IOModule\bin\Release\netstandard2.0\SkyVM.IOModule.dll
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.IOModule\SkyVM.IOModule\bin\Release\netstandard2.0\SkyVM.IOModule.pdb
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.IOModule\SkyVM.IOModule\bin\Release\netstandard2.0\SkyVM.InterfaceModule.dll
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.IOModule\SkyVM.IOModule\bin\Release\netstandard2.0\SkyVM.InterfaceModule.pdb
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.IOModule\SkyVM.IOModule\bin\Release\netstandard2.0\SkyVM.InterfaceModule.xml
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.IOModule\SkyVM.IOModule\obj\Release\netstandard2.0\SkyVM.IOModule.csprojAssemblyReference.cache
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.IOModule\SkyVM.IOModule\obj\Release\netstandard2.0\SkyVM.IOModule.csproj.CoreCompileInputs.cache
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.IOModule\SkyVM.IOModule\obj\Release\netstandard2.0\SkyVM.IOModule.AssemblyInfoInputs.cache
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.IOModule\SkyVM.IOModule\obj\Release\netstandard2.0\SkyVM.IOModule.AssemblyInfo.cs
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.IOModule\SkyVM.IOModule\obj\Release\netstandard2.0\SkyVM.IOModule.csproj.CopyComplete
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.IOModule\SkyVM.IOModule\obj\Release\netstandard2.0\SkyVM.IOModule.dll
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.IOModule\SkyVM.IOModule\obj\Release\netstandard2.0\SkyVM.IOModule.pdb

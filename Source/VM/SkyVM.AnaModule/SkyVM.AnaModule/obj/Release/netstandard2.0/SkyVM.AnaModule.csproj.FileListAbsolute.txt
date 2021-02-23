@@ -1,0 +1,8 @@
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.AnaModule\SkyVM.AnaModule\bin\Release\netstandard2.0\SkyVM.AnaModule.deps.json
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.AnaModule\SkyVM.AnaModule\bin\Release\netstandard2.0\SkyVM.AnaModule.dll
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.AnaModule\SkyVM.AnaModule\bin\Release\netstandard2.0\SkyVM.AnaModule.pdb
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.AnaModule\SkyVM.AnaModule\obj\Release\netstandard2.0\SkyVM.AnaModule.csproj.CoreCompileInputs.cache
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.AnaModule\SkyVM.AnaModule\obj\Release\netstandard2.0\SkyVM.AnaModule.AssemblyInfoInputs.cache
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.AnaModule\SkyVM.AnaModule\obj\Release\netstandard2.0\SkyVM.AnaModule.AssemblyInfo.cs
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.AnaModule\SkyVM.AnaModule\obj\Release\netstandard2.0\SkyVM.AnaModule.dll
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.AnaModule\SkyVM.AnaModule\obj\Release\netstandard2.0\SkyVM.AnaModule.pdb

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28606.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyVM.InterfaceModule", "SkyVM.InterfaceModule\SkyVM.InterfaceModule.csproj", "{BFD7EAA9-FB4C-45F2-A16C-0222B1427796}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFD7EAA9-FB4C-45F2-A16C-0222B1427796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFD7EAA9-FB4C-45F2-A16C-0222B1427796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFD7EAA9-FB4C-45F2-A16C-0222B1427796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFD7EAA9-FB4C-45F2-A16C-0222B1427796}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2EBEA042-E12E-4C3E-B319-B5ECC2DE1EBD}
+	EndGlobalSection
+EndGlobal

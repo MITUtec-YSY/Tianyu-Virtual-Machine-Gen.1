@@ -1,0 +1,8 @@
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.InterfaceModule\SkyVM.InterfaceModule\bin\Release\netstandard2.0\SkyVM.InterfaceModule.deps.json
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.InterfaceModule\SkyVM.InterfaceModule\bin\Release\netstandard2.0\SkyVM.InterfaceModule.dll
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.InterfaceModule\SkyVM.InterfaceModule\bin\Release\netstandard2.0\SkyVM.InterfaceModule.pdb
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.InterfaceModule\SkyVM.InterfaceModule\obj\Release\netstandard2.0\SkyVM.InterfaceModule.csproj.CoreCompileInputs.cache
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.InterfaceModule\SkyVM.InterfaceModule\obj\Release\netstandard2.0\SkyVM.InterfaceModule.AssemblyInfoInputs.cache
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.InterfaceModule\SkyVM.InterfaceModule\obj\Release\netstandard2.0\SkyVM.InterfaceModule.AssemblyInfo.cs
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.InterfaceModule\SkyVM.InterfaceModule\obj\Release\netstandard2.0\SkyVM.InterfaceModule.dll
+G:\米兔科技\项目\CPU（Sky）\虚拟机设计\第二代-测试\SkyVM.InterfaceModule\SkyVM.InterfaceModule\obj\Release\netstandard2.0\SkyVM.InterfaceModule.pdb

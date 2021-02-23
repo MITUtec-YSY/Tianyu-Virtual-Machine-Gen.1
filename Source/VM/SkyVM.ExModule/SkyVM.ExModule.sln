@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28606.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkyVM.ExModule", "SkyVM.ExModule\SkyVM.ExModule.csproj", "{BD629C05-F0FE-4A3D-BDAB-4FFF01CDE601}"
+EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "DependencyValidation1", "DependencyValidation1\DependencyValidation1.modelproj", "{801F6A4D-4BE1-47A9-9006-90CE6B969130}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD629C05-F0FE-4A3D-BDAB-4FFF01CDE601}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD629C05-F0FE-4A3D-BDAB-4FFF01CDE601}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD629C05-F0FE-4A3D-BDAB-4FFF01CDE601}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD629C05-F0FE-4A3D-BDAB-4FFF01CDE601}.Release|Any CPU.Build.0 = Release|Any CPU
+		{801F6A4D-4BE1-47A9-9006-90CE6B969130}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{801F6A4D-4BE1-47A9-9006-90CE6B969130}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{801F6A4D-4BE1-47A9-9006-90CE6B969130}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{801F6A4D-4BE1-47A9-9006-90CE6B969130}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {111271F4-D1C1-470A-9849-DA4F7F5E648A}
+	EndGlobalSection
+EndGlobal
