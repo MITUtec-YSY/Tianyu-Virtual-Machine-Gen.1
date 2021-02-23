@@ -1,0 +1,129 @@
+﻿start:    
+    set(256);
+    minit(0,8,0,3);
+    print("虚拟机测试程序-简单计算器");
+    minit(24,8,0,0);
+    print("输入第一个数：");
+    call(GetNum);
+    print("输入运算符：");
+    scan(16,2);
+    scan(16,2);
+    minit(24,8,8,0);
+    print("输入第二个数：");
+    scan(8,2);
+    scan(8,2);
+    call(GetNum);
+    call(Calculate);
+    call(ToChar);
+    print("运算结果为：");
+    print({[128]},{[120]});
+    end;
+
+GetNum:
+    minit(64,8,0,2);
+
+    getnum_loop:
+        scan(72,2);
+        sub(8,80,{[72]},10);
+        jz(readend);
+        sub(8,80,{[72]},47);
+        jns(more_zero);
+        jmp(readend);
+
+        more_zero:
+            sub(8,80,58,{[72]});
+            jns(is_num);
+            jmp(readend);
+
+            is_num:
+                sub(8,80,{[72]},48);
+                mul(8,64,{[64]},10);
+                add(8,64,{[64]},{[80]});
+                jmp(getnum_loop);
+
+    readend:
+        minit({[24]:8},8,{[64]},0);
+
+    ret;
+
+ToChar:
+    new(136,64);
+    minit(120,8,0,0);
+
+    tochar_loop1:
+        mod(2,{[136]+[120]*2},{[0]},10);
+        add(2,{[136]+[120]*2},{[[136]+[120]*2]},48);
+        add(8,120,{[120]},1);
+        div(8,0,{[0]},10);
+        jz(tochar_finish);
+        jmp(tochar_loop1);
+
+    tochar_finish:
+        new(128,64);
+        minit(144,8,0,2);
+
+        tochar_loop2:
+            add(2,{[128]+[144]*2},{[[136]+([120]-1)*2]},0);
+            add(8,144,{[144]},1);
+            sub(8,120,{[120]},1);
+            jz(tochar_end);
+            jmp(tochar_loop2);
+
+    tochar_end:
+        mul(8,120,{[144]},2);
+        ret;
+
+Calculate:
+    minit(32,8,0,0);
+    sub(8,32,{[16]},43);
+    jz(adds);
+    sub(8,32,{[16]},45);
+    jz(subs);
+    sub(8,32,{[16]},42);
+    jz(muls);
+    sub(8,32,{[16]},47);
+    jz(divs);
+    print("错误的运算符");
+    end;
+
+    adds:
+        call(Add);
+        jmp(finish);
+
+    subs:
+        call(Sub);
+        jmp(finish);
+
+    muls:
+        call(Mul);
+        jmp(finish);
+
+    divs:
+        sub(8,32,{[8]},0);
+        jz(divError);
+        call(Div);
+        jmp(finish);
+
+        divError:
+            print("数学错误：除数为零");
+            end;
+
+    finish:
+        ret;
+
+Add:
+    add(8,0,{[0]},{[8]});
+    ret;
+
+Sub:
+    sub(8,0,{[0]},{[8]});
+    ret;
+
+Mul:
+    mul(8,0,{[0]},{[8]});
+    ret;
+
+Div:
+    div(8,0,{[0]},{[8]});
+    ret;
+    end;

@@ -1,0 +1,1 @@
+Compiler -c demo.txt -o demo.tyh
