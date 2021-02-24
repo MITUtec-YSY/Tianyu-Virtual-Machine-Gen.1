@@ -8,13 +8,13 @@
 &emsp;  天宇虚拟机采用模拟硬件运行的方式实现，通过解析函数指令进行执行。函数指令与<u>***C语言***</u>调用函数相同，主要包括：<kbd>函数名</kbd>+<kbd>函数边界</kbd>+<kbd>参数</kbd>+<kbd>结束符</kbd>组成，其样式为：`function(prama1,prama2,...);`。  
 &emsp;  函数名为指令，分为<kbd>内存</kbd>、<kbd>设备</kbd>、<kbd>网络</kbd>、<kbd>硬盘</kbd>、<kbd>程序</kbd>、<kbd>输入输出</kbd>和<kbd>运算</kbd>模块，支持中英文两种指令类型。  
 &emsp;  在编写指令参数时，包含***设定关键字***、***表达式***和***其他文本类型***三种。**其他文本类型**主要用于在提供路径、IP地址等情况下需要；**设定关键字**用于为程序提供部分固定的常用表示方法，并用于当前<u>已经预设的设备</u>；**表达式**是整数型的表达式，使用<kbd>{}</kbd>进行包围，可使用<kbd>+</kbd>、<kbd>-</kbd>、<kbd>\*</kbd>、<kbd>/</kbd>和<kbd>^</kbd>。其运算符的优先级与日常的四则运算相同，<kbd>^</kbd>><kbd>*,/</kbd>><kbd>+,-</kbd>，可以使用<kbd>()</kbd>改变其运算顺序。  
-&emsp;  因为本虚拟机需要操作内存，所以在表达式中引入<kbd>[]</kbd>用于获取当前内存块的数据，以提供多级寻址的能力。  
+&emsp;  因为本虚拟机需要操作内存，所以在表达式中引入<kbd>\[\]</kbd>用于获取当前内存块的数据，以提供多级寻址的能力。在使用<kbd>\[\]</kbd>运算符时，还应该注意，默认取值为64位数据，当需要改变获取内存的长度时，需要使用<kbd>:</kbd>运算符。使用规则为<kbd>\[表达式\]:</kbd>+<kbd>数据长度</kbd>，<kbd>数据长度</kbd>规定为：<kbd>1</kbd>、<kbd>2</kbd>、<kbd>4</kbd>、<kbd>8</kbd>，其中，长度为<kbd>8</kbd>时可以省略该运算符。
 &emsp;  除了指令系统，天宇虚拟机还提供了**中断**功能，用于为<kbd>设备</kbd>和<kbd>IO系统</kbd>提供及时的数据相应，在当前的系统中，提供了针对常用异常和调用的中断。
 
 &emsp;  下面将针对具体的指令系统和中断系统进行说明。
 &emsp;  
 
-#### **指令系统**
+### **指令系统**
 + 内存模块访问指令  
 
 |中文指令|英文指令|参数列表|说明|  
@@ -181,40 +181,158 @@
 &emsp; 
 
 
-#### **已定义的关键字**
-
-|关键字名|助记符|所属标签|说明|  
-|:------:|:-------:|:----:|:------|
-|操作数类型|\[数字\]|操作数类型|操作数类型为1、2、4、8|
-|4代IP|IPv4|IP地址类型|IP地址长度为32位|
-|6代IP|IPv6||IP地址长度为128位|
-|TCP协议|TCP/IP|协议类型|可靠的传输服务协议|
-|UDP协议|UDP||不可靠的传输服务协议|
-|服务器|Server|连接模式|只用于接收数据的连接|
-|客户端|Client||只用于发送数据的连接|
-|混合模式|Mix||可用于发送与接收数据的连接|
-|接收端口|Server|端口类型|用于接收数据的端口|
-|发送端口|Client||用于发送数据的端口|
-|自动端口|Auto||自动的端口类型，默认为服务器端口，无服务器时为客户端端口|
-|目录|Entry|路径类型|指定路径为目录|
-|文件|File||指定路径为文件|
-|追加写入|append|文件写入方式|将数据写入到文件的末尾|
-|覆盖写入|cover||从文件指针开始处写入数据并覆盖掉原有数据|
-|新建写入|create||创建新文件并从头写入，如果文件存在则删除|
-|设备正常|DS_OK|设备运行状态||
-|设备暂停|DS_PU|||
-|设备异常|DS_ER|||
-|时间年|Year|时间操作类型||
-|时间月|Month|||
-|时间日|Day|||
-|时间小时|Hour|||
-|时间分|Minute|||
-|时间秒|Second|||
+### **已定义的关键字**
+&emsp;  
+> **IP类型**
+>|||||  
+>|:------:|:-------:|:----:|:------|
+>|4代IP|IPv4|IP地址类型|IP地址长度为32位|
+>|6代IP|IPv6||IP地址长度为128位|
+&emsp;  
+> **协议类型**
+>|||||  
+>|:------:|:-------:|:----:|:------|
+>|TCP协议|TCP/IP|协议类型|可靠的传输服务协议|
+>|UDP协议|UDP||不可靠的传输服务协议|
+&emsp;  
+> **服务类型**
+>|||||  
+>|:------:|:-------:|:----:|:------|
+>|服务器|Server|连接模式|只用于接收数据的连接|
+>|客户端|Client||只用于发送数据的连接|
+>|混合模式|Mix||可用于发送与接收数据的连接|
+&emsp;  
+> **端口类型**
+>|||||  
+>|:------:|:-------:|:----:|:------|
+>|接收端口|Server|端口类型|用于接收数据的端口|
+>|发送端口|Client||用于发送数据的端口|
+>|自动端口|Auto||自动的端口类型，默认为服务器端口，无服务器时为客户端端口|
+&emsp;  
+> **文件类型**
+>|||||  
+>|:------:|:-------:|:----:|:------|
+>|目录|Entry|路径类型|指定路径为目录|
+>|文件|File||指定路径为文件|
+&emsp;  
+> **文件操作类型**
+>|||||  
+>|:------:|:-------:|:----:|:------|
+>|追加写入|append|文件写入方式|将数据写入到文件的末尾|
+>|覆盖写入|cover||从文件指针开始处写入数据并覆盖掉原有数据|
+>|新建写入|create||创建新文件并从头写入，如果文件存在则删除|
+&emsp;  
+> **设备状态**
+>|||||  
+>|:------:|:-------:|:----:|:------|
+>|设备正常|DS_OK|设备运行状态||
+>|设备暂停|DS_PU|||
+>|设备异常|DS_ER|||
+&emsp;  
+> **时间类型**
+>|||||  
+>|:------:|:-------:|:----:|:------|
+>|时间年|Year|时间操作类型||
+>|时间月|Month|||
+>|时间日|Day|||
+>|时间小时|Hour|||
+>|时间分|Minute|||
+>|时间秒|Second|||
 
 &emsp; 
 
-#### **异常中断表**
-&emsp;  异常中断是用于程序内部的调用指令，包括错误中断以及系统调用中断，具体的中断如下表所示。其他未显示的中断号为未分配中断，后期的开发中可以进行扩充。  
+### **系统枚举**
+&emsp;  系统枚举是用于模块间调用的指令，包括错误中断以及状态标识，具体如下。
+
+> **内存异常中断**
+>|||
+>|:-:|:-:|
+>|Mem_Full|内存满异常|
+>|Time_Error|时间异常|
+>|Over_Flow|内存溢出|
+>|Out_Bounds|内存越界|
+&emsp;  
+
+> **设备异常中断**
+>|||
+>|:-:|:-:|
+>|Add_Failed|设备添加失败|
+>|Not_Exist|设备不存在（设备不在设备表中）|
+>|Off_Line|设备离线（设备关闭或卸载）|
+>|Work_Failed|设备异常|
+>|Interrupt_Error|中断异常|
+&emsp;  
+
+> **网络连接异常中断**
+>|||
+>|:-:|:-:|
+>|Connection_Exist|网络连接已存在|
+>|Create_Error|建立连接失败|
+>|ReConnection_Err|重连失败|
+>|Send_Failed|数据发送失败|
+&emsp;  
+
+> **符号值**
+>|||
+>|:-:|:-:|
+>|Positive|正数标志|
+>|Negative|负数标志|
+>|Zore|零标志|
+&emsp;  
+
+> **设备运行状态**
+>|||
+>|:-:|:-:|
+>|Closed|设备处于关闭状态|
+>|Running|设备正在运行|
+>|Paused|设备已暂停|
+>|Anomalous|设备运行异常|
+&emsp;    
+
+> **时间类型**
+>|||
+>|:-:|:-:|
+>|时间年|Year|
+>|时间月|Month|
+>|时间日|Day|
+>|时间小时|Hour|
+>|时间分|Minute|
+>|时间秒|Second|
+&emsp;    
+
+> **IP类型**
+>|||
+>|:-:|:-:|
+>|4代IP|IPv4|
+>|6代IP|IPv6|
+&emsp;  
+
+> **协议类型**
+>|||
+>|:-:|:-:|
+>|TCP协议|TCP/IP|
+>|UDP协议|UDP|
+&emsp;  
+
+> **服务类型**
+>|||
+>|:-:|:-:|
+>|服务器|Server|
+>|客户端|Client|
+>|混合模式|Mix|
+&emsp;  
+
+> **端口类型**
+>|||
+>|:-:|:-:|
+>|接收端口|Server|
+>|发送端口|Client|
+>|自动端口|Auto|
+
+&emsp; 
+
+### **异常中断号表**
+&emsp;  异常中断号是用于程序内部的调用指令，包括错误中断以及系统调用中断，具体的中断如下表所示。其他未显示的中断号为未分配中断，后期的开发中可以进行扩充。  
 
 |关键字名|助记符|  
 |:------:|:-------|
@@ -278,17 +396,148 @@
 
 ## **编译器**
 ### **PL/0语法**
+&emsp;  PL0语法的EBNF表示如下：  
+||||
+|:--:|:--:|:----|  
+|<表达式>|::=|\[\+\|\-\]<项>{<加法运算符><项>}|
+|<项>|::=|<因子>{<乘法运算符><因子>}|
+|<因子>|::=|<标识符>\|<无符号整数>\|'('<表达式>')'|
+|<加法运算符>|::=|\+ \| \-|
+|<乘法运算符>|::=|\* \| /|
+|<关系运算符>|::=|= \| \# \| \< \| <= \| > \| >=|
+|<条件语句>|::=|IF<条件>THEN<语句>|
+|<过程调用语句>|::=|CALL<标识符>|
+|<当型循环语句>|::=|WHILE<条件>DO<语句>|
+|<读语句>|::=|READ '('<标识符>{，<标识符>}')'|
+|<写语句>|::=|WRITE '('<表达式>{，<表达式>}')'|
+|<字母>|::=|a \| b \| … \| X \| Y \| Z|
+|<数字>|::=|0 \| 1 \| … \| 8 \| 9|
+&emsp; 
 
 ### **词法符号**
 
+|符号|说明|
+|:-:|:-:|
+|PL0_ConstSym|Const|
+|PL0_VarSym|Var|
+|PL0_ProcedureSym|Procedure|
+|PL0_BeginSym|Begin|
+|PL0_EndSym|End|
+|PL0_OddSym|Odd|
+|PL0_IfSym|If|
+|PL0_ThenSym|Then|
+|PL0_CallSym|Call|
+|PL0_WhileSym|While|
+|PL0_DoSym|Do|
+|PL0_ReadSym|Read|
+|PL0_WriteSym|Write|
+|PL0_Dot|'.'|
+|PL0_Comma|','|
+|PL0_Semicolon|';'|
+|PL0_Equal|'='|
+|PL0_Become|':='|
+|PL0_Plus|'+'|
+|PL0_Sub|'-'|
+|PL0_LBrace|'('|
+|PL0_RBrace|')'|
+|PL0_Mul|'*'|
+|PL0_Div|'/'|
+|PL0_Nequal|'#'|
+|PL0_Less|'<|
+|PL0_LessEqual|'<='|
+|PL0_Greater|'>'|
+|PL0_GreaterEqual|'>='|
+|PL0_ID|标识符类型，由字母与数字组成，字母开头|
+|PL0_Number|全部由数字组成|
+|PL0_ERROR|错误单词|
+
+&emsp; 
 ### **语法分析过程**
 
-## **使用说明**
+&emsp;  编译器的语法分析采用自下而上的分析方式，由常量分析开始，以此完成变量、子过程的分析。语法分析进行的同时会根据PL0语法与TYVM指令系统的对应完成目标代码的输出。语法分析器的调用过程图如下：  
+![alt PL0编译器语法语义分析调用过程图](READMEIMG/TYVM_Comilper_SCall.png)
+&emsp; 
+
+## **说明**
 ### **编译器**
 + Compiler.exe
 
+&emsp; Compiler.exe为控制台程序，通过CMD或Power Shell命令完成调用，下表为程序的命令参数。
+|参数|参数值|说明|
+|:-:|:-:|:--|
+|-l|\<directory\>|独立的词法分析程序，将词法分析结果输出至控制台|
+|-c|\<directory\> \[-o\]|执行完整的编译过程，生成.tyh文件，-o为可选参数|
+|-o|\<outfile\>|指定编译输出文件，只能用于-c命令参数之后，如果不使用则输出为默认文件|
+|-h|-|获取帮助|
 &emsp;  
 
 + PL0_Comletion.DLL
 
+PL0_Compeltion.DLL使用C#语言在.Net Standard平台上实现，命名空间为PL0_Completion。
+> 方法一：使用时通过创建Compiler对象完成针对编译器的初始化,通过调用`LexAnalys`和`Compiler`完成编译。  
+
+> 方法二：通过使用<kbd>**SyntaxAnalysisUnit**</kbd>类和<kbd>**LexAnalysisUnit**</kbd>类完成。当使用该方法时，需注意类的关联。  
+
+注：在使用第二种方法时，由于采用了默认的访问策略，可能需要您自行修改部分类的访问控制符，并重新生成该项目。
+
 ### **虚拟机**
+&emsp; 天宇虚拟机采用C#语言在.Net Standard平台上实现，基础命名空间为SkyVM，该项目可以放入所有基于C#开发的程序中（项目版本不能低于.netstandard2.0）。在使用时需要将5个模块都加入项目中。如下图所示为TYVM的系统功能框架。  
+![alt 系统功能框架](READMEIMG/TYVM_VM_SysFramework.png)  
+
+|模块|文件名|命名空间|功能|
+|:-:|:-:|:-:|:--|
+|分析模块|SkyVM.AnaModule.dll|<kbd>SkyVM.AnaModule</kbd>|分析模块主要提供文件编译解释和程序段生成功能，用于将文本代码转换为程序可读取的指令|
+|核心模块|SkyVM.CoreModule.dll|<kbd>SkyVM.CoreModule</kbd>  <kbd>SkyVM.CoreModule.Complexs</kbd>|核心模块包含数学运算、逻辑运算与复杂运算器，提供基本运算与复杂/用户自定义运算|
+|执行模块|SkyVM.ExModule.dll|<kbd>SkyVM.ExModule</kbd>|指定模块包含核心控制器与代码执行组件，提供代码执行、数据操作、指令操作控制功能|
+|接口模块|SkyVM.InterfaceModule.dll|<kbd>SkyVM.InterfaceModule</kbd>|接口模块为数据接口包，包含所有底层原件的数据通讯接口|
+|I/O模块|SkyVM.IOModule.dll|<kbd>SkyVM.IOModule</kbd>|包含网络与基本输入输出控制器组件|
+
+&emsp; 项目各模块之间通过接口进行连接，使用的接口列表如下所示：
+|接口名|方法|说明|异常|
+|:-:|:-:|:--|:--|
+|ICache|`byte[] Get(long,long,int)`|获取指定段页的指定大小数据|使用<kbd>IMemoryCacheInterrupt</kbd>提交异常中断，中断值见<kbd>***内存异常中断***</kbd>|
+||`void Set(long,long,byte[])`|向指定段页写入数据||
+||`void Bad(long,long)`|清除缓存中指定段页的数据||
+|MemoryBase|`MemoryBlock ReadMemory(long,out long)`|从内存中读取指定内存块|<kbd>out</kbd>值为<kbd>-1</kbd>时，内存出现异常，<kbd>MemoryBlock</kbd>返回<kbd>null</kbd>时出现异常|
+||`long ApplyMemory(long, out long)`|申请指定大小的内存||
+||`void ReleaseMemory(long)`|释放指定内存块||
+|IALUnit|`Symbol_Flag Symbol`|获取运算结果符号|符号值见<kbd>***符号值***</kbd>，计算方法返回bool型标志，返回<kbd>true</kbd>为<kbd>溢出</kbd>，否则为<kbd>未溢出</kbd>|
+||`bye[] Calculate(out bool,string,CalculateParameter[])`|计算方法||
+||`bool OperateTest(string)`|运算符测试||
+|IDeviceControl|`void AddDevice(int,IOBase)`|添加一个设备|使用<kbd>IDeviceControlInterrupt</kbd>提交异常中断，中断值见<kbd>***设备异常中断***</kbd>，设备包含设备运行状态<kbd>Device_State</kbd>，具体值见<kbd>***设备运行状态***</kbd>|
+||`void DeleteDevice(int)`|删除一个设备||
+||`object[] GetDevices`|获取所有设备||
+||`object GetDevice(int)`|获取指定中断的设备||
+||`void SetInterrupt(int,int)`|设置中断号||
+||`void AddInterruptService(int,int,string[])`|添加中断服务程序||
+||`void DelInterruptService(int,int)`|删除指定中断服务程序||
+||`void CleanInterruptService(int)`|清除指定设备的所有中断服务程序||
+|TimeBase|`void SyncTime()`|同步时间|<kbd>TimeOperation_Type</kbd>值见<kbd>***时间类型***</kbd>|
+||`short ReadTime(TimeOperation_Type)`|读取指定时间||
+||`void WriteTime(short,TimeOperation_Type)`|写入指定时间||
+||`void Save()`|保存时间||
+|IOBase|`void Run()`|启动设备|设备基类包含设备状态值，具体值见<kbd>***设备运行状态***</kbd>|
+||`void Stop()`|停止设备||
+||`void Pause()`|暂停设备||
+||`void Reset()`|重置设备||
+||`byte[] Get`|获取设备数据||
+||`byte[] Set`|向设备写入数据||
+|INetControl|`void CreateConnection(string,int,IP_Type,Protocol_Type,Connection_Model)`|创建连接|异常通过网络控制器终端接口<kbd>INetControlInterrupt</kbd>提交，具体异常值见<kbd>***网络连接异常中断***</kbd>；<kbd>IP_Type</kbd>类型值见<kbd>***IP类型***</kbd>；<kbd>Protocol_Type</kbd>见<kbd>***协议类型***</kbd>；<kbd>Connection_Model</kbd>见<kbd>***服务类型***</kbd>；<kbd>Prot_Type</kbd>见<kbd>***端口类型***</kbd>|
+||`void PauseConnection(int)`|暂停连接||
+||`void ResetConnection(int)`|重置连接||
+||`void StopConnection(int)`|停止连接||
+||`int GetPort(int,Port_Type)`|获取连接端口||
+||`void Send(int,byte[])`|通过指定连接发送数据||
+||`byte[] Receive(int)`|从指定连接获取数据||
+|IExecutorControl|`object Interrupt(int,InterruptCode,object[])`|核心中断请求|执行单元接口用于为底层提供异常请求与数据请求，具体中断说明<kbd>***异常中断表***</kbd>|
+
+&emsp;  
++ 虚拟机符号表数据结构
+
+![alt 虚拟机符号表数据结构](READMEIMG/TYVM_VM_SymTableDS.png) 
+&emsp;  
+
++ 虚拟机程序块数据结构
+
+![alt 虚拟机程序块数据结构](READMEIMG/TYVM_VM_ProgramBlockDS.png) 
+&emsp;  
