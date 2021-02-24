@@ -455,7 +455,7 @@
 ### **语法分析过程**
 
 &emsp;  编译器的语法分析采用自下而上的分析方式，由常量分析开始，以此完成变量、子过程的分析。语法分析进行的同时会根据PL0语法与TYVM指令系统的对应完成目标代码的输出。语法分析器的调用过程图如下：  
-![alt PL0编译器语法语义分析调用过程图](READMEIMG/TYVM_Comilper_SCall.png)
+![PL0编译器语法语义分析调用过程图](https://github.com/TIANYU-Sky/Tianyu-Virtual-Machine-Gen.1/blob/main/READMEIMG/TYVM_Comilper_SCall.png)
 &emsp; 
 
 ## **说明**
@@ -482,7 +482,7 @@ PL0_Compeltion.DLL使用C#语言在.Net Standard平台上实现，命名空间�
 
 ### **虚拟机**
 &emsp; 天宇虚拟机采用C#语言在.Net Standard平台上实现，基础命名空间为SkyVM，该项目可以放入所有基于C#开发的程序中（项目版本不能低于.netstandard2.0）。在使用时需要将5个模块都加入项目中。如下图所示为TYVM的系统功能框架。  
-![alt 系统功能框架](READMEIMG/TYVM_VM_SysFramework.png)  
+![系统功能框架](https://github.com/TIANYU-Sky/Tianyu-Virtual-Machine-Gen.1/blob/main/READMEIMG/TYVM_VM_SysFramework.png)  
 
 |模块|文件名|命名空间|功能|
 |:-:|:-:|:-:|:--|
@@ -534,10 +534,10 @@ PL0_Compeltion.DLL使用C#语言在.Net Standard平台上实现，命名空间�
 &emsp;  
 + 虚拟机符号表数据结构
 
-![alt 虚拟机符号表数据结构](READMEIMG/TYVM_VM_SymTableDS.png) 
+![虚拟机符号表数据结构](https://github.com/TIANYU-Sky/Tianyu-Virtual-Machine-Gen.1/blob/main/READMEIMG/TYVM_VM_SymTableDS.png) 
 &emsp;  
 
 + 虚拟机程序块数据结构
 
-![alt 虚拟机程序块数据结构](https://github.com/TIANYU-Sky/Tianyu-Virtual-Machine-Gen.1/blob/main/READMEIMG/TYVM_VM_ProgramBlockDS.png) 
+![虚拟机程序块数据结构](https://github.com/TIANYU-Sky/Tianyu-Virtual-Machine-Gen.1/blob/main/READMEIMG/TYVM_VM_ProgramBlockDS.png) 
 &emsp;  
