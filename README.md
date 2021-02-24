@@ -539,5 +539,5 @@ PL0_Compeltion.DLL使用C#语言在.Net Standard平台上实现，命名空间�
 
 + 虚拟机程序块数据结构
 
-![alt 虚拟机程序块数据结构](READMEIMG/TYVM_VM_ProgramBlockDS.png) 
+![alt 虚拟机程序块数据结构](https://github.com/TIANYU-Sky/Tianyu-Virtual-Machine-Gen.1/raw/main/READMEIMG/TYVM_VM_ProgramBlockDS.png) 
 &emsp;  
